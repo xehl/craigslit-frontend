@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.header-container {
+  border-top: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+  width: 800px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #ebebeb;
+  font-family: "Times New Roman", Times, serif;
+  color: #5c5c5c;
+  font-size: 22px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.sidebar-container {
+  width: 220px;
+  border-left: 1px solid #ababab;
+  border-right: 1px solid #ababab;
+  background-color: #ebebeb;
+}
+
+.sidebar-title {
+  color: #4e0673;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.sidebar-create {
+  margin-top: 10px;
+}
+
+.sidebar-create-button {
+  background-color: #fdffd1;
+}
+
+.sidebar-search {
+  margin-top: 10px;
+}
+
+.sidebar-calendar {
+  margin-top: 10px;
+}
+
+.sidebar-party-info {
+  margin-top: 10px;
+}
+
+.sidebar-about {
+  margin-top: 10px;
+}
