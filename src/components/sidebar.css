@@ -1,0 +1,42 @@
+.sidebar-container {
+  width: 220px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-left: 1px solid #ababab;
+  border-right: 1px solid #ababab;
+  background-color: #ebebeb;
+}
+
+.sidebar-title {
+  color: #4e0673;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.sidebar-create {
+  margin-top: 10px;
+}
+
+.sidebar-create-button {
+  background-color: #fdffd1;
+}
+
+.sidebar-search {
+  margin-top: 10px;
+}
+
+.sidebar-calendar {
+  margin-top: 10px;
+}
+
+.sidebar-party-info {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.sidebar-about {
+  margin-top: 10px;
+}

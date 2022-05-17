@@ -2,15 +2,19 @@ import "./App.css";
 import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 import Section from "./components/section";
-import Listing from "./components/listing";
 
 function App() {
   return (
     <div className="App">
-      <Header />
       <Sidebar />
-      <Section listings={23} />
-      <Listing />
+      <div>
+        <Header />
+        <div className="sections-container">
+          <Section listings={23} title={"Free and for sale"} />
+          <Section listings={23} title={"Personals"} />
+          <Section listings={23} title={"Links / Discussion"} />
+        </div>
+      </div>
     </div>
   );
 }

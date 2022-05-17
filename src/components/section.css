@@ -1,0 +1,10 @@
+.section-title {
+  margin-top: 15px;
+  border-top: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  background-color: #ebebeb;
+  color: #5c5c5c;
+}
