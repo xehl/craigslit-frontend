@@ -4,11 +4,93 @@
 
 .submit-header {
   display: flex;
+  align-items: center;
   height: 40px;
   border-bottom: 1px solid #ababab;
   background-color: #ebebeb;
-  font-family: "Times New Roman", Times, serif;
   color: #5c5c5c;
   font-size: 22px;
+  font-weight: bold;
   line-height: 40px;
+}
+
+.home-button {
+  height: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.form-container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.left {
+  display: inline-block;
+}
+
+.input {
+  height: 22px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+#title {
+  width: 250px;
+  margin-right: 15px;
+}
+
+#price {
+  width: 70px;
+  margin-right: 15px;
+}
+
+#condition {
+  margin-right: 15px;
+}
+
+#size {
+  margin-right: 35px;
+}
+
+#notes {
+  width: 240px;
+}
+
+label {
+  display: block;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 13px;
+}
+
+.description {
+  width: 100%;
+  height: 175px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+}
+
+.detail-container {
+  border: 1px solid #ababab;
+  background-color: #ebebeb;
+}
+
+.bottom-row {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button {
+  height: 30px;
+  width: 150px;
+  font-weight: bold;
 }
