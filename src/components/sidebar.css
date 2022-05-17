@@ -21,6 +21,15 @@
 
 .sidebar-create-button {
   background-color: #fdffd1;
+  color: blue;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.sidebar-create-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .sidebar-search {

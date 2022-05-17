@@ -20,29 +20,27 @@ export default function SubmitForm(props) {
   return (
     <div className="submit-container">
       <div className="submit-header">
-        <button className="home-button" onClick={handleHome}>cl</button>
-        <div>craigslit > post</div>
+        <button className="home-button" onClick={handleHome}>CL</button>
+        <div>craigslit &gt; post</div>
       </div>
       <div className="form-container">
         <div className="top-row">
           <div>
-              {/* <label for="title">title</label> */}
-              <input type="text" placeholder="title" id="title" className="input"/>
-              {/* <label for="author">author</label> */}
-              <input type="text" placeholder="author" id="author" className="input" />
+              <input type="text" placeholder="title" id="title" className="input" autocomplete="off"/>
+              <input type="text" placeholder="author" id="author" className="input" autocomplete="off"/>
           </div>
           <div>
-            <span>$ <input type="text" placeholder="price" id="price" className="input" /></span>
-            <input type="text" placeholder="location" id="location" className="input"/>
+            <span>$ <input type="text" placeholder="price" id="price" className="input" autocomplete="off"/></span>
+            <input type="text" placeholder="location" id="location" className="input" autocomplete="off"/>
           </div>
         </div>
         <textarea className="description" placeholder="Description"/>
         <div className="detail-container">
           <div className="bottom-row">
             <div>
-              <input type="text" placeholder="condition" id="condition" className="input"/>
-              <input type="text" placeholder="size/dimensions" id="size" className="input"/>
-              <input type="text" placeholder="other notes" id="notes" className="input" />
+              <input type="text" placeholder="condition" id="condition" className="input" autocomplete="off"/>
+              <input type="text" placeholder="size/dimensions" id="size" className="input" autocomplete="off"/>
+              <input type="text" placeholder="other notes" id="notes" className="input" autocomplete="off"/>
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
           </div>

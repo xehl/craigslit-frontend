@@ -18,6 +18,16 @@
   height: 25px;
   margin-left: 15px;
   margin-right: 15px;
+  border-radius: 12.5px;
+  border: 1px solid #5c5c5c;
+  background-color: #ffffff;
+  color: #4e0673;
+  font-weight: bold;
+}
+
+.home-button:hover {
+  cursor: pointer;
+  background-color: #dadada;
 }
 
 .form-container {
@@ -93,4 +103,12 @@ label {
   height: 30px;
   width: 150px;
   font-weight: bold;
+  background-color: #ffffff;
+  border: 1px solid #5c5c5c;
+  border-radius: 3px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  background-color: #dadada;
 }
