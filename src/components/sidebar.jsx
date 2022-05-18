@@ -1,5 +1,6 @@
 import React from "react";
 import "./sidebar.css"
+import Calendar from "./calendar";
 import { useNavigate } from "react-router-dom";
 
 export default function Sidebar(props) {
@@ -17,7 +18,7 @@ export default function Sidebar(props) {
       <div className="sidebar-search">
         <input type="text" name="search" placeholder="Search Craigslit"/>
       </div>
-      <div className="sidebar-calendar">calendar</div>
+      <Calendar />
       <div className="sidebar-party-info">craigslit is a party experience</div>
       <div className="sidebar-about">about</div>
     </div>

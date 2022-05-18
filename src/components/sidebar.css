@@ -40,6 +40,18 @@
   margin-top: 10px;
 }
 
+.cal-container {
+  display: grid;
+  margin: 0 auto;
+  width: 70%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
+}
+
+.cal-box {
+  background-color: white;
+}
+
 .sidebar-party-info {
   margin-top: 10px;
   margin-left: 10px;

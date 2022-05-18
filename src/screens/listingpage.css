@@ -1,0 +1,53 @@
+.listing-page-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.listing-header {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid #ababab;
+  background-color: #ebebeb;
+  color: #5c5c5c;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.listing-container {
+  width: 900px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.listing-title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.listing-price {
+  font-size: 24px;
+  color: #5c5c5c;
+  font-weight: normal;
+}
+
+.listing-details {
+  display: flex;
+}
+
+.detail {
+  border: 1px solid #ababab;
+  background-color: #f8f8f8;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.listing-description {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}

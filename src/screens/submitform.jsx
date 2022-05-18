@@ -34,7 +34,7 @@ export default function SubmitForm(props) {
             <input type="text" placeholder="location" id="location" className="input" autocomplete="off"/>
           </div>
         </div>
-        <textarea className="description" placeholder="Description"/>
+        <textarea className="description" placeholder="description"/>
         <div className="detail-container">
           <div className="bottom-row">
             <div>
