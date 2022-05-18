@@ -8,16 +8,17 @@ export default function TypeSelect(props) {
 
   const [type, setType] = useState(null)
 
-  let handleHome = (e) => {
-    e.preventDefault();
+  let handleHome = () => {
     navigate('/');
   }
 
   let handleType = (e) => {
-    e.preventDefault();
-    setType("weee");
-    console.log(type);
-    navigate('/post', {state: { listingtype: type }})
+
+    setType("weee")
+      .then(() => {
+      console.log(type);
+      navigate('/post', {state: { listingtype: type }})
+    })
   }
 
   return (
@@ -27,10 +28,10 @@ export default function TypeSelect(props) {
       </div>
       <div className="type-selector">
         <div><b>choose the type of listing that fits best:</b></div><br/>
-        <input type="radio" onClick={handleType} id="free and for sale" value="free and for sale" />free and for sale<br/>
-        <input type="radio" id="wanted" value="wanted" />wanted<br/>
-        <input type="radio" id="personals" value="personals" />personals<br/>
-        <input type="radio" id="links / discussion" value="links / discussion" />links / discussion
+        <input type="radio" onClick={handleType} />free and for sale<br/>
+        <input type="radio" onClick={handleType} />wanted<br/>
+        <input type="radio" onClick={handleType} />personals<br/>
+        <input type="radio" onClick={handleType} />links / discussion
       </div>
     </div>
   );

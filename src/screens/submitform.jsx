@@ -19,6 +19,7 @@ export default function SubmitForm(props) {
   }
 
   console.log(props)
+  console.log(location.state)
 
   return (
     <div className="submit-container">
