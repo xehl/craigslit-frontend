@@ -5,6 +5,7 @@ import App from "./App";
 import SubmitForm from "./screens/submitform";
 import Category from "./screens/category.jsx";
 import ListingPage from "./screens/listingpage";
+import TypeSelect from "./screens/typeselect";
 import reportWebVitals from "./reportWebVitals";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 
@@ -16,6 +17,7 @@ root.render(
       <Route path="/post" element={<SubmitForm />}></Route>
       <Route path="/category" element={<Category />}></Route>
       <Route path="/listing" element={<ListingPage />}></Route>
+      <Route path="/type" element={<TypeSelect />}></Route>
     </Routes>
   </Router>
 );

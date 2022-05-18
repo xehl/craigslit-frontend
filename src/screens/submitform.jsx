@@ -1,10 +1,11 @@
 // form for submitting a post
 import React from "react";
 import "./submitform.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function SubmitForm(props) {
 
+  let location = useLocation();
   let navigate = useNavigate();
 
   let handleSubmit = (e) => {
@@ -17,11 +18,13 @@ export default function SubmitForm(props) {
     navigate("/");
   }
 
+  console.log(props)
+
   return (
     <div className="submit-container">
       <div className="submit-header">
         <button className="home-button" onClick={handleHome}>CL</button>
-        <div>craigslit &gt; post</div>
+        <div>craigslit &gt; post &gt; { location.state.listingtype }</div>
       </div>
       <div className="form-container">
         <div className="top-row">

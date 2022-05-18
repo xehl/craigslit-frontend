@@ -4,8 +4,18 @@ import "./homepage.css"
 import Sidebar from "../components/sidebar";
 import Section from "../components/section";
 import Header from "../components/header";
+import axios from "axios";
 
 export default function Homepage(props) {
+
+  axios.get("http://127.0.0.1:8000/posts/")
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   return (
     <div className="homepage">
       <Sidebar />
