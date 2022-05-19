@@ -1,24 +1,23 @@
-import { React, useState } from "react";
+import { React, useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "./submitform.css"
 
 export default function TypeSelect(props) {
 
   let navigate = useNavigate();
-
   const [type, setType] = useState(null)
+
+  useEffect(() => {
+  //  navigate('/post', { state: { listingtype: type } });
+    console.log(type)
+  });
 
   let handleHome = () => {
     navigate('/');
   }
 
   let handleType = (e) => {
-
-    setType("weee")
-      .then(() => {
-      console.log(type);
-      navigate('/post', {state: { listingtype: type }})
-    })
+    setType(e.target.value);
   }
 
   return (
@@ -28,10 +27,10 @@ export default function TypeSelect(props) {
       </div>
       <div className="type-selector">
         <div><b>choose the type of listing that fits best:</b></div><br/>
-        <input type="radio" onClick={handleType} />free and for sale<br/>
-        <input type="radio" onClick={handleType} />wanted<br/>
-        <input type="radio" onClick={handleType} />personals<br/>
-        <input type="radio" onClick={handleType} />links / discussion
+        <input type="radio" value="free and for sale" onClick={handleType} />free and for sale<br/>
+        <input type="radio" value="wanted" onClick={handleType} />wanted<br/>
+        <input type="radio" value="personals" onClick={handleType} />personals<br/>
+        <input type="radio" value="links / discussion" onClick={handleType} />links / discussion
       </div>
     </div>
   );
