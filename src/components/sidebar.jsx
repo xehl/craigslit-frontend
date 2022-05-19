@@ -8,7 +8,7 @@ export default function Sidebar(props) {
   let navigate = useNavigate();
   let handlePost = (e) => {
     e.preventDefault();
-    navigate("/post");
+    navigate("/type");
   }
 
   return (

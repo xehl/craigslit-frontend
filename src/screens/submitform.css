@@ -113,6 +113,19 @@ label {
   background-color: #dadada;
 }
 
+.continue-button {
+  margin-top: 20px;
+  background-color: #dadada;
+  border: 1px solid #5c5c5c;
+  border-radius: 3px;
+  height: 30px;
+  width: 100px;
+}
+.continue-button:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+}
+
 .type-select-container {
   width: 100vw;
 }
