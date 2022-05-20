@@ -17,11 +17,13 @@ export default function ListingPage(props) {
   let [author, setAuthor] = useState("author")
   let [time, setTime] = useState("time")
 
+  // get image from cloudinary
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'dnzwb1afa'
     }
   })
+  // need to make this dynamic
   const myImage = cld.image("v1653060264/u6gq3x29sqr559z8jno6.jpg")
 
   let handleHome = (e) => {
@@ -29,6 +31,7 @@ export default function ListingPage(props) {
     navigate("/");
   }
 
+  // get text fields from django api
   axios.get("http://127.0.0.1:8000/posts/")
     .then((res) => {
       setTitle(res.data[1].title)
