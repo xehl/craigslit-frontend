@@ -1,21 +1,36 @@
 // form for submitting a post
-import React from "react";
-import "./submitform.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { React, useState } from "react"
+import "./submitform.css"
+import { useNavigate, useLocation } from "react-router-dom"
+import axios from "axios"
 
 export default function SubmitForm(props) {
 
-  let location = useLocation();
-  let navigate = useNavigate();
+  let location = useLocation()
+  let navigate = useNavigate()
+
+  const [image, setImage] = useState(null)
 
   let handleSubmit = (e) => {
-    e.preventDefault();
-    navigate("/");
+    e.preventDefault()
+    navigate("/")
   }
 
   let handleHome = (e) => {
-    e.preventDefault();
-    navigate("/");
+    e.preventDefault()
+    navigate("/")
+  }
+
+  let uploadImage = () => {
+    console.log(image)
+    const formData = new FormData()
+    formData.append("file", image)
+    formData.append("upload_preset", "intsirma")
+
+    axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
+      .then((res) => {
+        console.log(res)
+      })
   }
 
   console.log(props)
@@ -48,6 +63,8 @@ export default function SubmitForm(props) {
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
           </div>
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+          <button onClick={uploadImage}>submit image</button>
         </div>
       </div>
     </div>

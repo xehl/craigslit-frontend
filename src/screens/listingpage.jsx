@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./listingpage.css"
 import axios from "axios";
+import { AdvancedImage } from "@cloudinary/react"
+import { Cloudinary } from "@cloudinary/url-gen";
 
 export default function ListingPage(props) {
 
@@ -15,6 +17,12 @@ export default function ListingPage(props) {
   let [author, setAuthor] = useState("author")
   let [time, setTime] = useState("time")
 
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dnzwb1afa'
+    }
+  })
+  const myImage = cld.image("v1653060264/u6gq3x29sqr559z8jno6.jpg")
 
   let handleHome = (e) => {
     e.preventDefault();
@@ -49,7 +57,8 @@ export default function ListingPage(props) {
         </div>
         <div className="listing-details">
           <div>
-            <img src={require("../media/backpack.jpeg")} alt="backpack" />
+            {/* <img src={require("../media/backpack.jpeg")} alt="backpack" /> */}
+            <AdvancedImage cldImg={myImage} className="listing-image"/>
           </div>
           <div>
             <div className="detail">location: {location}</div><br/>
