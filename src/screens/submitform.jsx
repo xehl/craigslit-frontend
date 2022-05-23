@@ -11,6 +11,7 @@ export default function SubmitForm(props) {
   
   // store user image
   const [image, setImage] = useState(null)
+  const [imageID, setImageID] = useState(null)
 
   let title = useRef("title")
   let price = useRef("price")
@@ -25,33 +26,7 @@ export default function SubmitForm(props) {
   let handleSubmit = (e) => {
     e.preventDefault()
 
-    axios.post("http://127.0.0.1:8000/posts/", {
-      "title": title.current.value,
-      "author": author.current.value,
-      "description": description.current.value,
-      "price": price.current.value,
-      "location": itemlocation.current.value,
-      "condition": condition.current.value,
-      "size": size.current.value,
-      "notes": notes.current.value,
-      "listingtype": location.state.listingtype
-    }).then(
-      (res) => console.log(res)
-    )
-      .catch(
-      (err) => console.log(err)
-    )
-    navigate("/")
-  }
 
-  // home button sends user back to homepage
-  let handleHome = (e) => {
-    e.preventDefault()
-    navigate("/")
-  }
-
-  // uploads image 
-  let uploadImage = () => {
     // makes an empty object called formdata, appends image and the correct preset
     const formData = new FormData()
     formData.append("file", image)
@@ -60,15 +35,50 @@ export default function SubmitForm(props) {
     // post request to send image
     axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
       .then((res) => {
-        console.log(res)
+        console.log("image id: " + res.data.public_id)
+        axios.post("http://127.0.0.1:8000/posts/", {
+          "title": title.current.value,
+          "author": author.current.value,
+          "description": description.current.value,
+          "price": price.current.value,
+          "location": itemlocation.current.value,
+          "condition": condition.current.value,
+          "size": size.current.value,
+          "notes": res.data.public_id,
+          "listingtype": location.state.listingtype
+        }).then(
+          (res) => console.log(res)
+        )
+          .catch(
+          (err) => console.log(err)
+        )
       })
+    // navigate("/")
   }
 
-  let printForm = () => {
-    console.log(title.current.value)
+  // home button sends user back to homepage
+  let handleHome = (e) => {
+    e.preventDefault()
+    navigate("/")
   }
+
+  // // uploads image 
+  // let uploadImage = () => {
+  //   // makes an empty object called formdata, appends image and the correct preset
+  //   const formData = new FormData()
+  //   formData.append("file", image)
+  //   formData.append("upload_preset", "intsirma")
+
+  //   // post request to send image
+  //   axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
+  //     .then((res) => {
+  //       console.log(res.data.public_id)
+  //       setImageID(res.data.public_id)
+  //     })
+  // }
 
   console.log(location.state)
+  console.log(imageID)
 
   return (
     <div className="submit-container">
@@ -76,10 +86,10 @@ export default function SubmitForm(props) {
         <button className="home-button" onClick={handleHome}>CL</button>
         <div>craigslit &gt; post &gt; { location.state.listingtype }</div>
       </div>
-      <div className="form-container">
+      <form className="form-container">
         <div className="top-row">
           <div>
-              <input type="text" placeholder="title" ref={title} className="input" id="title" autocomplete="off"/>
+              <input type="text" placeholder="title" ref={title} className="input" id="title" autocomplete="off" required/>
               <input type="text" placeholder="author" ref={author} className="input" autocomplete="off"/>
           </div>
           <div>
@@ -93,15 +103,14 @@ export default function SubmitForm(props) {
             <div>
               <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autocomplete="off"/>
               <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autocomplete="off"/>
-              <input type="text" placeholder="other notes" ref={notes} className="input" id="notes" autocomplete="off"/>
+              {/* <input type="text" placeholder="other notes" ref={notes} className="input" id="notes" autocomplete="off"/> */}
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
           </div>
-          <input type="file" onChange={(e)=> setImage(e.target.files[0])} />
-          <button onClick={uploadImage}>submit image</button>
-          <button onClick={printForm}>print</button>
         </div>
-      </div>
+      </form>
+      <input type="file" onChange={(e)=> setImage(e.target.files[0])} />
+          {/* <button onClick={uploadImage}>submit image</button> */}
     </div>
   );
 }
