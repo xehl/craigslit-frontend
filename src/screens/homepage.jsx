@@ -1,5 +1,5 @@
 // homepage for craigslit (currently on app.js)
-import React from "react";
+import { React, useState, useEffect } from "react";
 import "./homepage.css"
 import Sidebar from "../components/sidebar";
 import Section from "../components/section";
@@ -8,13 +8,19 @@ import axios from "axios";
 
 export default function Homepage(props) {
 
-  axios.get("http://127.0.0.1:8000/posts/")
+  const [listings, setListings] = useState([])
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:8000/posts/")
     .then((res) => {
-      console.log(res.data)
+      setListings(res.data)
     })
     .catch((err) => {
-      console.log(err);
-    });
+      console.log(err)
+    })
+    console.log(listings)
+  }, [])
+
 
   return (
     <div className="homepage">
@@ -26,6 +32,11 @@ export default function Homepage(props) {
           <Section listings={23} title={"wanted"} />
           <Section listings={23} title={"personals"} />
           <Section listings={23} title={"links / discussion"} />
+          <div>
+          {listings.map((item) => (
+            <div>{item.title}</div>
+          ))}
+        </div>
         </div>
       </div>
     </div>

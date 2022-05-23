@@ -11,7 +11,6 @@ export default function SubmitForm(props) {
   
   // store user image
   const [image, setImage] = useState(null)
-  const [imageID, setImageID] = useState(null)
 
   let title = useRef("title")
   let price = useRef("price")
@@ -20,7 +19,6 @@ export default function SubmitForm(props) {
   let condition = useRef("condition")
   let description = useRef("description")
   let author = useRef("author")
-  let notes = useRef("notes")
 
   // make api post request with form data
   let handleSubmit = (e) => {
@@ -32,7 +30,7 @@ export default function SubmitForm(props) {
     formData.append("file", image)
     formData.append("upload_preset", "intsirma")
 
-    // post request to send image
+    // post request to send image to cloudinary, then post request to send text
     axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
       .then((res) => {
         console.log("image id: " + res.data.public_id)
@@ -44,7 +42,7 @@ export default function SubmitForm(props) {
           "location": itemlocation.current.value,
           "condition": condition.current.value,
           "size": size.current.value,
-          "notes": res.data.public_id,
+          "imageid": res.data.public_id,
           "listingtype": location.state.listingtype
         }).then(
           (res) => console.log(res)
@@ -78,7 +76,6 @@ export default function SubmitForm(props) {
   // }
 
   console.log(location.state)
-  console.log(imageID)
 
   return (
     <div className="submit-container">
@@ -89,27 +86,26 @@ export default function SubmitForm(props) {
       <form className="form-container">
         <div className="top-row">
           <div>
-              <input type="text" placeholder="title" ref={title} className="input" id="title" autocomplete="off" required/>
-              <input type="text" placeholder="author" ref={author} className="input" autocomplete="off"/>
+              <input type="text" placeholder="title" ref={title} className="input" id="title" autoComplete="off" required/>
+              <input type="text" placeholder="author" ref={author} className="input" autoComplete="off"/>
           </div>
           <div>
-            <span>$ <input type="text" placeholder="price" ref={price} className="input" id="price" autocomplete="off"/></span>
-            <input type="text" placeholder="location" ref={itemlocation} className="input" autocomplete="off"/>
+            <span>$ <input type="text" placeholder="price" ref={price} className="input" id="price" autoComplete="off"/></span>
+            <input type="text" placeholder="location" ref={itemlocation} className="input" autoComplete="off"/>
           </div>
         </div>
         <textarea ref={description} className="description" placeholder="description"/>
         <div className="detail-container">
           <div className="bottom-row">
             <div>
-              <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autocomplete="off"/>
-              <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autocomplete="off"/>
-              {/* <input type="text" placeholder="other notes" ref={notes} className="input" id="notes" autocomplete="off"/> */}
+              <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autoComplete="off"/>
+              <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autoComplete="off"/>
+              <span className="image-text">image: </span><input type="file" onChange={(e) => setImage(e.target.files[0])} />
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
           </div>
         </div>
       </form>
-      <input type="file" onChange={(e)=> setImage(e.target.files[0])} />
           {/* <button onClick={uploadImage}>submit image</button> */}
     </div>
   );

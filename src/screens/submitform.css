@@ -99,6 +99,12 @@ label {
   justify-content: space-between;
 }
 
+.image-text {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: #5c5c5c;
+}
+
 .submit-button {
   height: 30px;
   width: 150px;
@@ -121,6 +127,7 @@ label {
   height: 30px;
   width: 100px;
 }
+
 .continue-button:hover {
   background-color: #ebebeb;
   cursor: pointer;
