@@ -9,7 +9,7 @@ export default function SubmitForm(props) {
   let location = useLocation()
   let navigate = useNavigate()
   
-  // store user image in a state
+  // store user image
   const [image, setImage] = useState(null)
 
   let title = useRef("title")
@@ -21,10 +21,10 @@ export default function SubmitForm(props) {
   let author = useRef("author")
   let notes = useRef("notes")
 
-
   // make api post request with form data
   let handleSubmit = (e) => {
     e.preventDefault()
+
     axios.post("http://127.0.0.1:8000/posts/", {
       "title": title.current.value,
       "author": author.current.value,
@@ -34,7 +34,6 @@ export default function SubmitForm(props) {
       "condition": condition.current.value,
       "size": size.current.value,
       "notes": notes.current.value,
-      "created": "",
       "listingtype": location.state.listingtype
     }).then(
       (res) => console.log(res)
@@ -42,7 +41,7 @@ export default function SubmitForm(props) {
       .catch(
       (err) => console.log(err)
     )
-    // navigate("/")
+    navigate("/")
   }
 
   // home button sends user back to homepage
@@ -80,11 +79,11 @@ export default function SubmitForm(props) {
       <div className="form-container">
         <div className="top-row">
           <div>
-              <input type="text" placeholder="title" ref={title} className="input" autocomplete="off"/>
+              <input type="text" placeholder="title" ref={title} className="input" id="title" autocomplete="off"/>
               <input type="text" placeholder="author" ref={author} className="input" autocomplete="off"/>
           </div>
           <div>
-            <span>$ <input type="text" placeholder="price" ref={price} className="input" autocomplete="off"/></span>
+            <span>$ <input type="text" placeholder="price" ref={price} className="input" id="price" autocomplete="off"/></span>
             <input type="text" placeholder="location" ref={itemlocation} className="input" autocomplete="off"/>
           </div>
         </div>
@@ -92,9 +91,9 @@ export default function SubmitForm(props) {
         <div className="detail-container">
           <div className="bottom-row">
             <div>
-              <input type="text" placeholder="condition" ref={condition} className="input" autocomplete="off"/>
-              <input type="text" placeholder="size/dimensions" ref={size} className="input" autocomplete="off"/>
-              <input type="text" placeholder="other notes" ref={notes} className="input" autocomplete="off"/>
+              <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autocomplete="off"/>
+              <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autocomplete="off"/>
+              <input type="text" placeholder="other notes" ref={notes} className="input" id="notes" autocomplete="off"/>
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
           </div>
