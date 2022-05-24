@@ -9,12 +9,13 @@ export default function ListingLink(props) {
   // will eventually need to pass in link ID
   let handleClick = (e) => {
     e.preventDefault();
-    navigate("/listing");
+    console.log("item number: " + props.listingnumber)
+    navigate("/listing", { state: { listingnum: props.listingnumber } });
   }
 
   return (
     <div className="listing" onClick={handleClick}>
-      { props.title }
+      { props.title } {props.listingnumber}
     </div>
   );
 }

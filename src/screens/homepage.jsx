@@ -34,7 +34,7 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "free and for sale") {
-                  return <ListingLink key={item.id} section={"free and for sale"} title={item.title} type={item.listingtype} />
+                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
                 }
               return null
               })}
@@ -47,11 +47,12 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "wanted") {
-                  return <ListingLink key={item.id} section={"wanted"} title={item.title} type={item.listingtype} />
+                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
                 }
               return null
               })}
-            </div>          </div>
+            </div>
+          </div>
           <div>
             <div className="section-title">
               personals
@@ -59,7 +60,7 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "personals") {
-                  return <ListingLink key={item.id} section={"personals"} title={item.title} type={item.listingtype} />
+                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
                 }
               return null
               })}
@@ -72,7 +73,7 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "links / discussion") {
-                  return <ListingLink key={item.id} section={"links / discussion"} title={item.title} type={item.listingtype} />
+                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
                 }
               return null
               })}

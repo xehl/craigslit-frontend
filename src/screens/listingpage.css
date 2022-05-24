@@ -39,8 +39,11 @@
 
 .listing-image {
   width: 650px;
+  height: 420px;
+  object-fit: contain;
   margin-top: 15px;
   margin-right: 25px;
+  background-color: #ebebeb;
 }
 
 .detail {
