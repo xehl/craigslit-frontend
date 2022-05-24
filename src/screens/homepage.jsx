@@ -2,8 +2,8 @@
 import { React, useState, useEffect } from "react";
 import "./homepage.css"
 import Sidebar from "../components/sidebar";
-import Section from "../components/section";
 import Header from "../components/header";
+import ListingLink from "../components/listinglink";
 import axios from "axios";
 
 export default function Homepage(props) {
@@ -18,7 +18,6 @@ export default function Homepage(props) {
     .catch((err) => {
       console.log(err)
     })
-    console.log(listings)
   }, [])
 
 
@@ -28,15 +27,57 @@ export default function Homepage(props) {
       <div>
         <Header />
         <div className="sections-container">
-          <Section listings={23} title={"free and for sale"} />
-          <Section listings={23} title={"wanted"} />
-          <Section listings={23} title={"personals"} />
-          <Section listings={23} title={"links / discussion"} />
           <div>
-          {listings.map((item) => (
-            <div>{item.title}</div>
-          ))}
-        </div>
+            <div className="section-title">
+              free and for sale
+            </div>
+            <div>
+              {listings.map((item) => {
+                if (item.listingtype === "free and for sale") {
+                  return <ListingLink key={item.id} section={"free and for sale"} title={item.title} type={item.listingtype} />
+                }
+              return null
+              })}
+            </div>
+          </div>
+          <div>
+            <div className="section-title">
+              wanted
+            </div>
+            <div>
+              {listings.map((item) => {
+                if (item.listingtype === "wanted") {
+                  return <ListingLink key={item.id} section={"wanted"} title={item.title} type={item.listingtype} />
+                }
+              return null
+              })}
+            </div>          </div>
+          <div>
+            <div className="section-title">
+              personals
+            </div>
+            <div>
+              {listings.map((item) => {
+                if (item.listingtype === "personals") {
+                  return <ListingLink key={item.id} section={"personals"} title={item.title} type={item.listingtype} />
+                }
+              return null
+              })}
+            </div>
+          </div>
+          <div>
+            <div className="section-title">
+              links / discussion
+            </div>
+            <div>
+              {listings.map((item) => {
+                if (item.listingtype === "links / discussion") {
+                  return <ListingLink key={item.id} section={"links / discussion"} title={item.title} type={item.listingtype} />
+                }
+              return null
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

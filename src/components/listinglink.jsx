@@ -1,11 +1,12 @@
 import React from "react";
-import "./listing.css"
+import "./listinglink.css"
 import { useNavigate } from "react-router-dom";
 
-export default function Listing(props) {
+export default function ListingLink(props) {
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
+  // will eventually need to pass in link ID
   let handleClick = (e) => {
     e.preventDefault();
     navigate("/listing");
@@ -13,7 +14,7 @@ export default function Listing(props) {
 
   return (
     <div className="listing" onClick={handleClick}>
-      listing link
+      { props.title }
     </div>
   );
 }
