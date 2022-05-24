@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./listingpage.css"
 import axios from "axios";
 import { AdvancedImage } from "@cloudinary/react"
@@ -45,6 +45,7 @@ export default function ListingPage(props) {
     .catch((err) => {
       console.log(err);
     });
+    // eslint-disable-next-line
   }, [])
 
   const myImage = cld.image("v1653060264/" + imageID + ".jpg")
