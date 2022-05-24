@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import "./listingpage.css"
 import axios from "axios";
 import { AdvancedImage } from "@cloudinary/react"
@@ -7,6 +7,8 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 export default function ListingPage(props) {
 
+  const location = useLocation()
+  const params = useParams()
   // configure cloudinary
   const cld = new Cloudinary({
     cloud: {
@@ -14,7 +16,6 @@ export default function ListingPage(props) {
     }
   })
 
-  const location = useLocation()
   const [title, setTitle] = useState(null)
   const [price, setPrice] = useState(null)
   const [itemlocation, setLocation] = useState(null)
@@ -24,12 +25,13 @@ export default function ListingPage(props) {
   const [author, setAuthor] = useState(null)
   const [created, setCreated] = useState(null)
   const [imageID, setImageID] = useState(null)
+  const [type, setType] = useState(null)
 
   let navigate = useNavigate()
 
   useEffect(() => {
     // get text fields from django api
-    axios.get("http://127.0.0.1:8000/posts/" + location.state.listingnum + "/")
+    axios.get("http://127.0.0.1:8000/posts/" + params.listingid + "/")
       .then((res) => {
         console.log(res.data)
         setTitle(res.data.title)
@@ -41,6 +43,7 @@ export default function ListingPage(props) {
         setAuthor(res.data.author)
         setCreated(res.data.created)
         setImageID(res.data.imageid)
+        setType(res.data.listingtype)
     })
     .catch((err) => {
       console.log(err);
@@ -55,12 +58,11 @@ export default function ListingPage(props) {
     navigate("/");
   }
   
-
   return (
     <div className="listing-page-container">
       <div className="listing-header">
         <button className="home-button" onClick={handleHome}>CL</button>
-        <div>craigslit &gt; listing &gt; {title}</div> 
+        <div>craigslit &gt; listing &gt; {type} &gt; {title}</div> 
       </div>
       <div className="listing-container">
         <div className="listing-title">

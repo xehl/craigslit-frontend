@@ -45,13 +45,15 @@ export default function SubmitForm(props) {
           "imageid": res.data.public_id,
           "listingtype": location.state.listingtype
         }).then(
-          (res) => console.log(res)
+          (res) => {
+            console.log(res)
+            navigate("/listing/" + res.data.id)
+          }
         )
           .catch(
           (err) => console.log(err)
         )
       })
-    // navigate("/")
   }
 
   // home button sends user back to homepage
@@ -59,21 +61,6 @@ export default function SubmitForm(props) {
     e.preventDefault()
     navigate("/")
   }
-
-  // // uploads image 
-  // let uploadImage = () => {
-  //   // makes an empty object called formdata, appends image and the correct preset
-  //   const formData = new FormData()
-  //   formData.append("file", image)
-  //   formData.append("upload_preset", "intsirma")
-
-  //   // post request to send image
-  //   axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
-  //     .then((res) => {
-  //       console.log(res.data.public_id)
-  //       setImageID(res.data.public_id)
-  //     })
-  // }
 
   console.log(location.state)
 
