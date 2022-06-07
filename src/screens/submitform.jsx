@@ -22,10 +22,16 @@ export default function SubmitForm(props) {
 
   // make api post request with form data
   let handleSubmit = (e) => {
+
+    // only submit api calls if all required fields are complete
+    if (title.current.value != null) {
+      console.log("title must not be blank")
+      return
+    }
+
     e.preventDefault()
 
-
-    // makes an empty object called formdata, appends image and the correct preset
+    // makes an empty object called formdata, appends image and the correct cloudinary preset
     const formData = new FormData()
     formData.append("file", image)
     formData.append("upload_preset", "intsirma")
