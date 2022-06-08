@@ -23,13 +23,41 @@ export default function SubmitForm(props) {
   // make api post request with form data
   let handleSubmit = (e) => {
 
-    // only submit api calls if all required fields are complete
-    if (title.current.value != null) {
+    e.preventDefault()
+
+    // only submit api calls if all fields are complete
+    if (title.current.value === "") {
       console.log("title must not be blank")
       return
     }
-
-    e.preventDefault()
+    if (price.current.value === "") {
+      console.log("price must not be blank")
+      return
+    }
+    if (!price.current.value.match("[0-9]+")) {
+      console.log("price must be a number")
+      return
+    }
+    if (itemlocation.current.value === "") {
+      console.log("location must not be blank")
+      return
+    }
+    if (size.current.value === "") {
+      console.log("size must not be blank")
+      return
+    }
+    if (condition.current.value === "") {
+      console.log("condition must not be blank")
+      return
+    }
+    if (description.current.value === "") {
+      console.log("description must not be blank")
+      return
+    }
+    if (author.current.value === "") {
+      console.log("author must not be blank")
+      return
+    }
 
     // makes an empty object called formdata, appends image and the correct cloudinary preset
     const formData = new FormData()
