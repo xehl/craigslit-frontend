@@ -6,8 +6,6 @@ import { AdvancedImage } from "@cloudinary/react"
 import { Cloudinary } from "@cloudinary/url-gen";
 
 export default function ListingPage(props) {
-
-  const location = useLocation()
   const params = useParams()
   // configure cloudinary
   const cld = new Cloudinary({
