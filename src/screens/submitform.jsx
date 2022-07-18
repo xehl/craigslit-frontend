@@ -68,7 +68,7 @@ export default function SubmitForm(props) {
     axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
       .then((res) => {
         console.log("image id: " + res.data.public_id)
-        axios.post("https://craigslitbackend.herokuapp.com/posts/", {
+        axios.post(`${process.env.REACT_APP_API_URL}/posts/`, {
           "title": title.current.value,
           "author": author.current.value,
           "description": description.current.value,
