@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./listingpage.css"
 import axios from "axios";
 import { AdvancedImage } from "@cloudinary/react"
