@@ -11,7 +11,7 @@ export default function Homepage(props) {
   const [listings, setListings] = useState([])
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/posts/")
+    axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
     .then((res) => {
       setListings(res.data)
     })

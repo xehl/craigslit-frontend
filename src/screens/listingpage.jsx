@@ -31,7 +31,7 @@ export default function ListingPage(props) {
 
   useEffect(() => {
     // get text fields from django api
-    axios.get("http://127.0.0.1:8000/posts/" + params.listingid + "/")
+    axios.get(`${process.env.REACT_APP_API_URL}/posts/` + params.listingid + "/")
       .then((res) => {
         console.log(res.data)
         setTitle(res.data.title)
