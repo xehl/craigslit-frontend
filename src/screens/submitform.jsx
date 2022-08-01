@@ -20,42 +20,98 @@ export default function SubmitForm(props) {
   let description = useRef("description")
   let author = useRef("author")
 
+  const [titleMissing, setTitleMissing] = useState(null)
+  const [priceMissing, setPriceMissing] = useState(null)
+  const [locationMissing, setLocationMissing] = useState(null)
+  const [conditionMissing, setConditionMissing] = useState(null)
+  const [authorMissing, setAuthorMissing] = useState(null)
+  const [sizeMissing, setSizeMissing] = useState(null)
+  const [descriptionMissing, setDescriptionMissing] = useState(null)
+  const [imageMissing, setImageMissing] = useState(null)
+
   // make api post request with form data
   let handleSubmit = (e) => {
 
     e.preventDefault()
 
+    let incomplete = false
+
     // only submit api calls if all fields are complete
-    if (title.current.value === "") {
+    if (title.current.value !== "") {
       console.log("title must not be blank")
-      return
+      setTitleMissing(false)
     }
-    if (price.current.value === "") {
+    else {
+      setTitleMissing(true)
+      incomplete = true
+    }
+
+    if (price.current.value !== "") {
       console.log("price must not be blank")
-      return
+      setPriceMissing(false)
     }
+    else {
+      setPriceMissing(true)
+      incomplete = true
+    }
+
+    if (itemlocation.current.value !== "") {
+      console.log("location must not be blank")
+      setLocationMissing(false)
+    }
+    else {
+      setLocationMissing(true)
+      incomplete = true
+    }
+
+    if (size.current.value !== "") {
+      console.log("size must not be blank")
+      setSizeMissing(false)
+    }
+    else {
+      setSizeMissing(true)
+      incomplete = true
+    }
+
+    if (condition.current.value !== "") {
+      console.log("condition must not be blank")
+      setConditionMissing(false)
+    }
+    else {
+      setConditionMissing(true)
+      incomplete = true
+    }
+
+    if (author.current.value !== "") {
+      console.log("author must not be blank")
+      setAuthorMissing(false)
+    }
+    else {
+      setAuthorMissing(true)
+      incomplete = true
+    }
+
+    if (description.current.value !== "") {
+      console.log("description must not be blank")
+      setDescriptionMissing(false)
+    }
+    else {
+      setDescriptionMissing(true)
+      incomplete = true
+    }
+
+    if (image === null) {
+      setImageMissing(true)
+      incomplete = true
+    }
+
+
     if (!price.current.value.match("[0-9]+")) {
       console.log("price must be a number")
-      return
+      incomplete = true
     }
-    if (itemlocation.current.value === "") {
-      console.log("location must not be blank")
-      return
-    }
-    if (size.current.value === "") {
-      console.log("size must not be blank")
-      return
-    }
-    if (condition.current.value === "") {
-      console.log("condition must not be blank")
-      return
-    }
-    if (description.current.value === "") {
-      console.log("description must not be blank")
-      return
-    }
-    if (author.current.value === "") {
-      console.log("author must not be blank")
+
+    if (incomplete) {
       return
     }
 
@@ -107,27 +163,26 @@ export default function SubmitForm(props) {
       <form className="form-container">
         <div className="top-row">
           <div>
-              <input type="text" placeholder="title" ref={title} className="input" id="title" autoComplete="off" required/>
-              <input type="text" placeholder="author" ref={author} className="input" autoComplete="off"/>
+              <input type="text" placeholder="title" ref={title} className={titleMissing ? "incomplete" : "input"} id="title" autoComplete="off" required/>
+              <input type="text" placeholder="author" ref={author} className={authorMissing ? "incomplete" : "input"} autoComplete="off"/>
           </div>
           <div>
-            <span>$ <input type="text" placeholder="price" ref={price} className="input" id="price" autoComplete="off"/></span>
-            <input type="text" placeholder="location" ref={itemlocation} className="input" autoComplete="off"/>
+            <span>$ <input type="text" placeholder="price" ref={price} className={priceMissing ? "incomplete" : "input"} id="price" autoComplete="off"/></span>
+            <input type="text" placeholder="location" ref={itemlocation} className={locationMissing ? "incomplete" : "input"} autoComplete="off"/>
           </div>
         </div>
-        <textarea ref={description} className="description" placeholder="description"/>
+        <textarea ref={description} className={descriptionMissing ? "description-incomplete" : "description"} placeholder="description"/>
         <div className="detail-container">
           <div className="bottom-row">
             <div>
-              <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autoComplete="off"/>
-              <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autoComplete="off"/>
-              <span className="image-text">image: </span><input type="file" onChange={(e) => setImage(e.target.files[0])} />
+              <input type="text" placeholder="condition" ref={condition} className={conditionMissing ? "incomplete" : "input"} id="condition" autoComplete="off"/>
+              <input type="text" placeholder="size/dimensions" ref={size} className={sizeMissing ? "incomplete" : "input"} id="size" autoComplete="off"/>
+              <span className="image-text">image: </span><input type="file" className={imageMissing ? "image-incomplete" : ""} onChange={(e) => setImage(e.target.files[0])} />
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
           </div>
         </div>
       </form>
-          {/* <button onClick={uploadImage}>submit image</button> */}
     </div>
   );
 }
