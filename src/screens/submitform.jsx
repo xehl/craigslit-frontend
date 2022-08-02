@@ -1,5 +1,6 @@
 // form for submitting a post
 import { React, useRef, useState } from "react"
+import ReactTooltip from "react-tooltip";
 import "./submitform.css"
 import { useNavigate, useLocation } from "react-router-dom"
 import axios from "axios"
@@ -38,7 +39,6 @@ export default function SubmitForm(props) {
 
     // only submit api calls if all fields are complete
     if (title.current.value !== "") {
-      console.log("title must not be blank")
       setTitleMissing(false)
     }
     else {
@@ -47,7 +47,6 @@ export default function SubmitForm(props) {
     }
 
     if (price.current.value !== "") {
-      console.log("price must not be blank")
       setPriceMissing(false)
     }
     else {
@@ -56,7 +55,6 @@ export default function SubmitForm(props) {
     }
 
     if (itemlocation.current.value !== "") {
-      console.log("location must not be blank")
       setLocationMissing(false)
     }
     else {
@@ -65,7 +63,6 @@ export default function SubmitForm(props) {
     }
 
     if (size.current.value !== "") {
-      console.log("size must not be blank")
       setSizeMissing(false)
     }
     else {
@@ -74,7 +71,6 @@ export default function SubmitForm(props) {
     }
 
     if (condition.current.value !== "") {
-      console.log("condition must not be blank")
       setConditionMissing(false)
     }
     else {
@@ -83,7 +79,6 @@ export default function SubmitForm(props) {
     }
 
     if (author.current.value !== "") {
-      console.log("author must not be blank")
       setAuthorMissing(false)
     }
     else {
@@ -92,7 +87,6 @@ export default function SubmitForm(props) {
     }
 
     if (description.current.value !== "") {
-      console.log("description must not be blank")
       setDescriptionMissing(false)
     }
     else {
@@ -100,14 +94,20 @@ export default function SubmitForm(props) {
       incomplete = true
     }
 
-    if (image === null) {
+    if (image !== null) {
+      setImageMissing(false)
+    }
+    else {
       setImageMissing(true)
       incomplete = true
     }
 
 
-    if (!price.current.value.match("[0-9]+")) {
-      console.log("price must be a number")
+    if (price.current.value.match("[0-9]+")) {
+      setPriceMissing(false)
+    }
+    else {
+      setPriceMissing(true)
       incomplete = true
     }
 
@@ -167,7 +167,10 @@ export default function SubmitForm(props) {
               <input type="text" placeholder="author" ref={author} className={authorMissing ? "incomplete" : "input"} autoComplete="off"/>
           </div>
           <div>
-            <span>$ <input type="text" placeholder="price" ref={price} className={priceMissing ? "incomplete" : "input"} id="price" autoComplete="off"/></span>
+            <span data-tip='price must be a number' data-event='click focus'>
+              $ <input type="text" placeholder="price" ref={price} className={priceMissing ? "incomplete" : "input"} id="price" autoComplete="off" />
+              <ReactTooltip globalEventOff='click'/>
+            </span>
             <input type="text" placeholder="location" ref={itemlocation} className={locationMissing ? "incomplete" : "input"} autoComplete="off"/>
           </div>
         </div>
