@@ -15,7 +15,7 @@ export default function ListingLink(props) {
 
   return (
     <div className="listing" onClick={handleClick}>
-      { props.title } {props.listingnumber}
+      { props.title }
     </div>
   );
 }
