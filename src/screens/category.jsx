@@ -2,6 +2,7 @@
 import React from "react";
 import "./category.css"
 import "./submitform.css"
+// import ListingLink from "../components/listinglink"
 import { useNavigate } from "react-router-dom";
 
 export default function Category(props) {
@@ -24,6 +25,14 @@ export default function Category(props) {
           <input type="text" className="category-search" />
           <button className="search-button">search</button>
         </form>
+        {/* 
+          // pasted from homepage
+              {listings.map((item) => {
+                if (item.listingtype === "personals") {
+                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
+                }
+              return null
+        })} */}
       </div>
     </div>
   );

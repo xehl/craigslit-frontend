@@ -3,7 +3,7 @@ import React from "react";
 export default function Calendar(props) {
   return (
     <div className="sidebar-calendar">
-      <br/>august 2022
+      <br/>january 2023
         <div className="cal-container">
           <div className="cal-box">S</div>
           <div className="cal-box">M</div>
@@ -13,7 +13,7 @@ export default function Calendar(props) {
           <div className="cal-box">F</div>
           <div className="cal-box">S</div>
           <div className="cal-box"> </div>
-          <div className="cal-box">1</div>
+          <div className="cal-box" style={{background: 'yellow'}}>1</div>
           <div className="cal-box">2</div>
           <div className="cal-box">3</div>
           <div className="cal-box">4</div>
@@ -32,7 +32,7 @@ export default function Calendar(props) {
           <div className="cal-box">17</div>
           <div className="cal-box">18</div>
           <div className="cal-box">19</div>
-          <div className="cal-box" style={{background: 'yellow'}}><b>20</b></div>
+          <div className="cal-box">20</div>
           <div className="cal-box">21</div>
           <div className="cal-box">22</div>
           <div className="cal-box">23</div>
