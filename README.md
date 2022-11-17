@@ -35,14 +35,14 @@ Craigslist clone as an interactive party invitation. Built in React with a Djang
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/xehl/campus-fm.svg?style=for-the-badge
-[contributors-url]: https://github.com/xehl/campus-fm/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/xehl/campus-fm.svg?style=for-the-badge
-[forks-url]: https://github.com/xehl/campus-fm/network/members
-[stars-shield]: https://img.shields.io/github/stars/xehl/campus-fm.svg?style=for-the-badge
-[stars-url]: https://github.com/xehl/campus-fm/stargazers
-[issues-shield]: https://img.shields.io/github/issues/xehl/campus-fm.svg?style=for-the-badge
-[issues-url]: https://github.com/xehl/campus-fm/issues
+[contributors-shield]: https://img.shields.io/github/contributors/xehl/craigslit-frontend.svg?style=for-the-badge
+[contributors-url]: https://github.com/xehl/craigslit-frontend/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/xehl/craigslit-frontend.svg?style=for-the-badge
+[forks-url]: https://github.com/xehl/craigslit-frontend/network/members
+[stars-shield]: https://img.shields.io/github/stars/xehl/craigslit-frontend.svg?style=for-the-badge
+[stars-url]: https://github.com/xehl/craigslit-frontend/stargazers
+[issues-shield]: https://img.shields.io/github/issues/xehl/craigslit-frontend.svg?style=for-the-badge
+[issues-url]: https://github.com/xehl/craigslit-frontend/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/eric-h-lee
 [product-screenshot]: public/screen.png
