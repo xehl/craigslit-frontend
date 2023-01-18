@@ -9,6 +9,7 @@ import axios from "axios";
 export default function Homepage(props) {
 
   const [listings, setListings] = useState([])
+  console.log(listings)
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
@@ -33,7 +34,7 @@ export default function Homepage(props) {
             </div>
             <div>
               {listings.map((item) => {
-                if (item.listingtype === "free and for sale") {
+                if (item.listingtype === "free") {
                   return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
                 }
               return null
