@@ -5,10 +5,18 @@ import Sidebar from "../components/sidebar";
 import Header from "../components/header";
 import ListingLink from "../components/listinglink";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 export default function Homepage(props) {
 
+  let navigate = useNavigate()
+
   const [listings, setListings] = useState([])
+
+  let handleClick = (e) => {
+    e.preventDefault();
+    navigate("/category");
+  }
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
@@ -28,7 +36,7 @@ export default function Homepage(props) {
         <Header />
         <div className="sections-container">
           <div>
-            <div className="section-title">
+            <div className="section-title" onClick={ handleClick }>
               free and for sale
             </div>
             <div>
