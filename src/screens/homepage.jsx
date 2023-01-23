@@ -22,7 +22,7 @@ export default function Homepage(props) {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
     .then((res) => {
-      setListings(res.data)
+      setListings(res.data.listings)
     })
     .catch((err) => {
       console.log(err)

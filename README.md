@@ -22,7 +22,7 @@
 
 ## About The Project
 
-Craigslist clone as an interactive party invitation. Built in React with a Django/PostgreSQL backend. Explore the site or make a post [here](https://serene-tarsier-eb11bb.netlify.app/).
+Craigslist clone as an interactive party invitation. Built in React with a Django/PostgreSQL backend. Explore the site or make a post [here](https://craigslit.netlify.app/).
 
 ## Built With
 
