@@ -7,7 +7,10 @@ export default function CategoryHeader(props) {
 
   function handleClick(e) {
     e.preventDefault();
-    navigate(`/category/${props.title.split(" ")[0]}`);
+
+    setTimeout(() => { 
+      navigate(`/category/${props.title.split(" ")[0]}`);
+    }, 200);
   }
 
   return (

@@ -150,8 +150,9 @@ export default function SubmitForm(props) {
   // home button sends user back to homepage
   let handleHome = (e) => {
     e.preventDefault()
-    navigate("/")
-  }
+    setTimeout(() => { 
+      navigate("/");
+    }, 200);  }
 
   console.log(location.state)
 

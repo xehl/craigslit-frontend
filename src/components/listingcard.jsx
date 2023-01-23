@@ -24,7 +24,7 @@ export default function ListingCard(props) {
 
   let handleClick = (e) => {
     e.preventDefault();
-    console.log("item number: " + listing._id)
+    // console.log("item number: " + listing._id)
     navigate(`/listing/${listing._id}`);
   }
 

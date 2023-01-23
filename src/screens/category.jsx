@@ -35,7 +35,9 @@ export default function Category() {
 
   let handleHome = (e) => {
     e.preventDefault();
-    navigate("/");
+    setTimeout(() => { 
+      navigate("/");
+    }, 200);
   }
 
   return (

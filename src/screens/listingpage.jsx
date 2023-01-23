@@ -55,8 +55,9 @@ export default function ListingPage(props) {
 
   let handleHome = (e) => {
     e.preventDefault();
-    navigate("/");
-  }
+    setTimeout(() => { 
+      navigate("/");
+    }, 200);  }
   
   return (
     <div className="listing-page-container">
