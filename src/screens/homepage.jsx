@@ -43,7 +43,8 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "free") {
-                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
+                  console.log(item)
+                  return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null
               })}
@@ -56,7 +57,7 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "wanted") {
-                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
+                  return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null
               })}
@@ -69,7 +70,7 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "personals") {
-                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
+                  return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null
               })}
@@ -82,7 +83,7 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "links / discussion") {
-                  return <ListingLink key={item.id} title={item.title} type={item.listingtype} listingnumber={ item.id }/>
+                  return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null
               })}

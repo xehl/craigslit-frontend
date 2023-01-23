@@ -28,20 +28,22 @@ export default function ListingPage(props) {
   let navigate = useNavigate()
 
   useEffect(() => {
+    console.log(`${process.env.REACT_APP_API_URL}/posts/` + params.listingid + "/")
     // get text fields from django api
     axios.get(`${process.env.REACT_APP_API_URL}/posts/` + params.listingid + "/")
       .then((res) => {
-        console.log(res.data)
-        setTitle(res.data.title)
-        setPrice(res.data.price)
-        setLocation(res.data.location)
-        setSize(res.data.size)
-        setCondition(res.data.condition)
-        setDescription(res.data.description)
-        setAuthor(res.data.author)
-        setCreated(res.data.created)
-        setImageID(res.data.imageid)
-        setType(res.data.listingtype)
+        let listing = res.data.listing
+        console.log(res)
+        setTitle(listing.title)
+        setPrice(listing.price)
+        setLocation(listing.location)
+        setSize(listing.size)
+        setCondition(listing.condition)
+        setDescription(listing.description)
+        setAuthor(listing.author)
+        setCreated(listing.created)
+        setImageID(listing.imageid)
+        setType(listing.listingtype)
     })
     .catch((err) => {
       console.log(err);
@@ -81,7 +83,7 @@ export default function ListingPage(props) {
           {description}
         </div>
         <div>
-          Posted by: {author} at {created}
+          Posted by: {author} on {created}
         </div>
       </div>
     </div>

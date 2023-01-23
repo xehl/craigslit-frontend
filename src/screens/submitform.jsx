@@ -24,9 +24,9 @@ export default function SubmitForm(props) {
   const [titleMissing, setTitleMissing] = useState(null)
   const [priceMissing, setPriceMissing] = useState(null)
   const [locationMissing, setLocationMissing] = useState(null)
-  const [conditionMissing, setConditionMissing] = useState(null)
+  // const [conditionMissing, setConditionMissing] = useState(null)
   const [authorMissing, setAuthorMissing] = useState(null)
-  const [sizeMissing, setSizeMissing] = useState(null)
+  // const [sizeMissing, setSizeMissing] = useState(null)
   const [descriptionMissing, setDescriptionMissing] = useState(null)
   const [imageMissing, setImageMissing] = useState(null)
 
@@ -62,21 +62,21 @@ export default function SubmitForm(props) {
       incomplete = true
     }
 
-    if (size.current.value !== "") {
-      setSizeMissing(false)
-    }
-    else {
-      setSizeMissing(true)
-      incomplete = true
-    }
+    // if (size.current.value !== "") {
+    //   setSizeMissing(false)
+    // }
+    // else {
+    //   setSizeMissing(true)
+    //   incomplete = true
+    // }
 
-    if (condition.current.value !== "") {
-      setConditionMissing(false)
-    }
-    else {
-      setConditionMissing(true)
-      incomplete = true
-    }
+    // if (condition.current.value !== "") {
+    //   setConditionMissing(false)
+    // }
+    // else {
+    //   setConditionMissing(true)
+    //   incomplete = true
+    // }
 
     if (author.current.value !== "") {
       setAuthorMissing(false)
@@ -136,8 +136,9 @@ export default function SubmitForm(props) {
           "listingtype": location.state.listingtype
         }).then(
           (res) => {
-            console.log(res)
-            navigate("/listing/" + res.data.id)
+            console.log(res.data.listing)
+            let listing = res.data.listing
+            navigate("/listing/" + listing._id)
           }
         )
           .catch(
@@ -178,8 +179,8 @@ export default function SubmitForm(props) {
         <div className="detail-container">
           <div className="bottom-row">
             <div>
-              <input type="text" placeholder="condition" ref={condition} className={conditionMissing ? "incomplete" : "input"} id="condition" autoComplete="off"/>
-              <input type="text" placeholder="size/dimensions" ref={size} className={sizeMissing ? "incomplete" : "input"} id="size" autoComplete="off"/>
+              <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autoComplete="off"/>
+              <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autoComplete="off"/>
               <span className="image-text">image: </span><input type="file" className={imageMissing ? "image-incomplete" : ""} onChange={(e) => setImage(e.target.files[0])} />
             </div>
             <button className="submit-button" onClick={handleSubmit}>submit listing</button>
