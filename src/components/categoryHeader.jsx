@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function CategoryHeader(props) {
 
