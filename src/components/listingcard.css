@@ -1,7 +1,12 @@
 .listing-card {
   width: 270px;
-  height: 250px;
-  border: 1px solid rgb(111, 111, 111);
+  /* height: 250px; */
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 8px;
+  box-shadow:rgb(224, 224, 224) 0px 0px 7px;
+}
+.listing-card:hover {
+  cursor: pointer;
 }
 
 .card-image {

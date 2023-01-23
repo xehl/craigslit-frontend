@@ -5,19 +5,20 @@ import Sidebar from "../components/sidebar";
 import Header from "../components/header";
 import ListingLink from "../components/listinglink";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
+import CategoryHeader from "../components/categoryHeader";
 
 export default function Homepage(props) {
 
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
 
   const [listings, setListings] = useState([])
   console.log(listings)
 
-  let handleClick = (e) => {
-    e.preventDefault();
-    navigate("/category");
-  }
+  // let handleClick = (e) => {
+  //   e.preventDefault();
+  //   navigate("/category");
+  // }
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
@@ -37,9 +38,10 @@ export default function Homepage(props) {
         <Header />
         <div className="sections-container">
           <div>
-            <div className="section-title" onClick={ handleClick }>
+            {/* <div className="section-title" onClick={ handleClick }>
               free and for sale
-            </div>
+            </div> */}
+            <CategoryHeader title="free and for sale"/>
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "free") {
@@ -51,9 +53,7 @@ export default function Homepage(props) {
             </div>
           </div>
           <div>
-            <div className="section-title">
-              wanted
-            </div>
+          <CategoryHeader title="wanted"/>
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "wanted") {
@@ -64,9 +64,7 @@ export default function Homepage(props) {
             </div>
           </div>
           <div>
-            <div className="section-title">
-              personals
-            </div>
+          <CategoryHeader title="personals"/>
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "personals") {
@@ -77,9 +75,7 @@ export default function Homepage(props) {
             </div>
           </div>
           <div>
-            <div className="section-title">
-              links / discussion
-            </div>
+          <CategoryHeader title="links / discussion"/>
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "links / discussion") {

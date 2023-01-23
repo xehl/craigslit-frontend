@@ -15,7 +15,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}></Route>
       <Route path="/post" element={<SubmitForm />}></Route>
-      <Route path="/category" element={<Category />}></Route>
+      <Route path="/category/:category" element={<Category />}></Route>
       <Route path="/listing/:listingid" element={<ListingPage />} />
       <Route path="/type" element={<TypeSelect />}></Route>
     </Routes>
