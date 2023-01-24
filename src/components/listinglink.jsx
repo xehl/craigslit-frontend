@@ -1,5 +1,5 @@
 import React from "react";
-import "./listinglink.css"
+import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function ListingLink(props) {
@@ -17,8 +17,19 @@ export default function ListingLink(props) {
   }
 
   return (
-    <div className="listing" onClick={handleClick}>
+    <Box
+      onClick={handleClick}
+      sx={{
+        borderBottom: "1px solid #cbcbcb",
+        paddingBottom: "2px",
+        color: "blue",
+        ":hover": {
+          textDecoration: "underline",
+          cursor: "pointer"
+        }
+      }}
+    >
       { props.title }
-    </div>
+    </Box>
   );
 }

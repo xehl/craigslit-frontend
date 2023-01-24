@@ -1,5 +1,4 @@
 import React from "react";
-import "./listingcard.css"
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -35,8 +34,14 @@ export default function ListingCard(props) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
+        width: "270px",
+        border: "1px solid rgb(187, 187, 187)",
+        borderRadius: "8px",
+        boxShadow: "rgb(224, 224, 224) 0px 0px 7px",
+        "&:hover": {
+          cursor: "pointer"
+        }
       }}
-      className="listing-card"
       onClick={handleClick}
     >
       <Box sx={{
