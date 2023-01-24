@@ -13,6 +13,7 @@ export default function Homepage(props) {
   console.log(listings)
 
   useEffect(() => {
+    console.log("run useeffect")
     axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
     .then((res) => {
       setListings(res.data.listings)
@@ -53,7 +54,7 @@ export default function Homepage(props) {
             </div>
           </div>
           <div>
-          <CategoryHeader title="personals"/>
+          <CategoryHeader title="personals / missed connections"/>
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "personals") {
