@@ -16,8 +16,10 @@ export default function Category() {
   console.log(`${process.env.REACT_APP_API_URL}/category/${params.category}`)
 
   useEffect(() => {
+    console.log("useEffect")
     axios.get(`${process.env.REACT_APP_API_URL}/category/${params.category}`)
       .then((res) => {
+        console.log(res.data.listings)
         setListingData(res.data.listings)
       })
   }, [params.category])
