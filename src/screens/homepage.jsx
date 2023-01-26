@@ -7,11 +7,12 @@ import Header from "../components/header";
 import ListingLink from "../components/listinglink";
 import axios from "axios";
 import CategoryHeader from "../components/categoryHeader";
+import RsvpBar from "../components/rsvpbar";
 
 export default function Homepage(props) {
 
   const [listings, setListings] = useState([])
-  console.log(listings)
+  // console.log(listings)
 
   useEffect(() => {
     console.log("run useeffect")
@@ -43,7 +44,6 @@ export default function Homepage(props) {
             <div>
               {listings.map((item) => {
                 if (item.listingtype === "free") {
-                  console.log(item)
                   return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null
@@ -84,7 +84,8 @@ export default function Homepage(props) {
             </div>
           </div>
         </div>
-        </div>
+      </div>
+      <RsvpBar />
     </Box>
   );
 }

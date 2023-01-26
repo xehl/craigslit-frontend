@@ -1,5 +1,4 @@
 import React from "react";
-// import "./sidebar.css"
 import { Box } from "@mui/material";
 import Calendar from "./calendar";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +11,14 @@ export default function Sidebar(props) {
     // wait for 0.2 seconds before navigating to the type page
     setTimeout(() => { 
       navigate("/type");
+    }, 200);
+  }
+
+  let handleRsvp = (e) => {
+    e.preventDefault();
+    // wait for 0.2 seconds before navigating to the rsvp page
+    setTimeout(() => { 
+      navigate("/rsvp");
     }, 200);
   }
 
@@ -38,7 +45,11 @@ export default function Sidebar(props) {
       >
         Craigslit
       </Box>
-      <Box sx={{ mt: "12px" }}>
+      <Box sx={{
+        mt: "12px",
+        mb: "12px",
+      }}
+      >
         <Box
           component="span"
           sx={{
@@ -52,8 +63,28 @@ export default function Sidebar(props) {
               textDecoration: "underline"
             }
           }}
-          onClick={handlePost}>
-            create a post
+          onClick={handleRsvp}
+        >
+          RSVP here
+        </Box>
+      </Box>
+      <Box>
+        <Box
+          component="span"
+          sx={{
+            backgroundColor: "#fdffd1",
+            color: "blue",
+            fontWeight: "bold",
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            "&:hover": {
+              cursor: "pointer",
+              textDecoration: "underline"
+            }
+          }}
+          onClick={handlePost}
+        >
+          create a post
         </Box>
       </Box>
       {/* <div className="sidebar-search">

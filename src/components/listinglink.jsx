@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ListingLink(props) {
 
-  console.log(props)
+  // console.log(props)
 
   let navigate = useNavigate()
 

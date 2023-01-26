@@ -33,7 +33,7 @@ export default function TypeSelect(props) {
       <div className="type-selector">
         <div><b>choose the type of listing that fits best:</b></div><br />
         <input type="radio" name="type" value="free" onClick={handleType} /> free and for sale<br/>
-        <input type="radio" name="type" value="wanted" onClick={handleType} /> gigs<br/>
+        <input type="radio" name="type" value="wanted" onClick={handleType} /> wanted<br/>
         <input type="radio" name="type" value="personals" onClick={handleType} /> personals / missed connections<br/>
         <input type="radio" name="type" value="links / discussion" onClick={handleType} /> links / discussion<br/>
         <button className="continue-button" onClick={handleContinue}>continue</button>
