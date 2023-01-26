@@ -1,5 +1,6 @@
 // homepage for craigslit (currently on app.js)
 import { React, useState, useEffect } from "react";
+import { Box } from "@mui/material";
 import "./homepage.css"
 import Sidebar from "../components/sidebar";
 import Header from "../components/header";
@@ -25,7 +26,14 @@ export default function Homepage(props) {
 
 
   return (
-    <div className="homepage">
+
+  <Box sx={{
+    height: "100vh",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    textAlign: "center",
+    }}>
       <Sidebar />
       <div>
         <Header />
@@ -76,7 +84,7 @@ export default function Homepage(props) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+    </Box>
   );
 }
