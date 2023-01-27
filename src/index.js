@@ -5,6 +5,7 @@ import App from "./App";
 import SubmitForm from "./screens/submitform";
 import Category from "./screens/category.jsx";
 import ListingPage from "./screens/listingpage";
+import RsvpPage from "./screens/rsvppage";
 import TypeSelect from "./screens/typeselect";
 import reportWebVitals from "./reportWebVitals";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
@@ -18,6 +19,7 @@ root.render(
       <Route path="/category/:category" element={<Category />}></Route>
       <Route path="/listing/:listingid" element={<ListingPage />} />
       <Route path="/type" element={<TypeSelect />}></Route>
+      <Route path="/rsvp" element={<RsvpPage />}></Route>
     </Routes>
   </Router>
 );

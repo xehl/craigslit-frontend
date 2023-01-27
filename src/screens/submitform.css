@@ -51,6 +51,11 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.med {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
 #title {
   width: 250px;
   margin-right: 15px;
