@@ -18,7 +18,7 @@ export default function RsvpBar() {
 
   return (
     <Box sx={{
-      width: 180,
+      width: 210,
       height: "90vh",
       marginTop: "15px",
       marginBottom: "15px",
@@ -46,6 +46,8 @@ export default function RsvpBar() {
               fontFamily: "Times New Roman",
               fontSize: 18,
               marginTop: "7px",
+              ml: 0.7,
+              mr: 0.7,
             }}>
               {item.name}
             </Box>

@@ -15,8 +15,8 @@ export default function Homepage(props) {
   // console.log(listings)
 
   useEffect(() => {
-    console.log("run useeffect")
-    axios.get(`${process.env.REACT_APP_API_URL}/posts/`)
+    // get most recent listings for each category (set to 10 for now)
+    axios.get(`${process.env.REACT_APP_API_URL}/recent/`)
     .then((res) => {
       setListings(res.data.listings)
     })
