@@ -77,7 +77,7 @@ export default function ListingPage(props) {
         className="category-header"
       >
         <button className="home-button" onClick={handleHome}>CL</button>
-        <div>craigslit &gt; listing &gt; {type} &gt; {title}</div> 
+        <div>{type} &gt; {title}</div> 
       </Box>
       <Box sx={{
         p: 2

@@ -17,10 +17,7 @@ export default function Homepage(props) {
   let navigate = useNavigate();
 
   const [listings, setListings] = useState([])
-  // console.log(listings)
   const [guests, setGuests] = useState([])
-
-  // console.log(`${process.env.REACT_APP_API_URL}/recent/`)
 
   useEffect(() => {
     // get most recent listings for each category (set to 10 for now)
