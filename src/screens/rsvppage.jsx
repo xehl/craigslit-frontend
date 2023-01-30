@@ -23,6 +23,8 @@ export default function RsvpPage() {
   
   let handleRsvp = (e) => {
 
+    // TODO: make phone required
+
     e.preventDefault();
 
     console.log(name.current.value, email.current.value, phone.current.value, message.current.value)

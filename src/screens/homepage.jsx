@@ -14,6 +14,8 @@ export default function Homepage(props) {
   const [listings, setListings] = useState([])
   // console.log(listings)
 
+  console.log(`${process.env.REACT_APP_API_URL}/recent/`)
+
   useEffect(() => {
     // get most recent listings for each category (set to 10 for now)
     axios.get(`${process.env.REACT_APP_API_URL}/recent/`)
@@ -25,9 +27,7 @@ export default function Homepage(props) {
     })
   }, [])
 
-
   return (
-
   <Box sx={{
     height: "100vh",
     display: "flex",
@@ -51,10 +51,11 @@ export default function Homepage(props) {
             </div>
           </div>
           <div>
-          <CategoryHeader title="wanted"/>
+          <CategoryHeader title="gigs" />
+            <ListingLink title="Dj listing goes here clip extra text overflow herewjad kwnajndwakindwjaidnad one more lineok this is too big" type="gigs" listingid="test" />
             <div>
               {listings.map((item) => {
-                if (item.listingtype === "wanted") {
+                if (item.listingtype === "gigs") {
                   return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null

@@ -21,12 +21,17 @@ export default function ListingLink(props) {
       onClick={handleClick}
       sx={{
         borderBottom: "1px solid #cbcbcb",
+        // hide overflow text
+        textOverflow: "clip",
+        overflow: "hidden",
+        wrap: "nowrap",
+        width: "322.5px",
         paddingBottom: "2px",
         color: "blue",
         ":hover": {
           textDecoration: "underline",
           cursor: "pointer"
-        }
+        },
       }}
     >
       { props.title }

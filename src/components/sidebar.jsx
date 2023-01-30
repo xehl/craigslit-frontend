@@ -14,13 +14,13 @@ export default function Sidebar(props) {
     }, 200);
   }
 
-  let handleRsvp = (e) => {
-    e.preventDefault();
-    // wait for 0.2 seconds before navigating to the rsvp page
-    setTimeout(() => { 
-      navigate("/rsvp");
-    }, 200);
-  }
+  // let handleRsvp = (e) => {
+  //   e.preventDefault();
+  //   // wait for 0.2 seconds before navigating to the rsvp page
+  //   setTimeout(() => { 
+  //     navigate("/rsvp");
+  //   }, 200);
+  // }
 
   return (
     <Box sx={{
@@ -48,9 +48,12 @@ export default function Sidebar(props) {
       <Box sx={{
         mt: "12px",
         mb: "12px",
+        // fontFamily: "Times New Roman",
+        fontSize: 18,
+        fontWeight: "bold",
       }}
       >
-        <Box
+        {/* <Box
           component="span"
           sx={{
             backgroundColor: "#fdffd1",
@@ -66,7 +69,8 @@ export default function Sidebar(props) {
           onClick={handleRsvp}
         >
           RSVP here
-        </Box>
+        </Box> */}
+        Make a post to RSVP
       </Box>
       <Box>
         <Box
@@ -91,7 +95,7 @@ export default function Sidebar(props) {
         <input type="text" name="search" placeholder="Search Craigslit"/>
       </div> */}
       <Calendar />
-      <div className="sidebar-party-info"><br/><i>you're invited to craigslit! barter market, gift exchange, dance party, and more</i></div>
+      <div className="sidebar-party-info"><br/><i>you're invited to craigslit! barter market, gift exchange, dance party, and more</i><br/><br/>+1s welcome<br/><br/> plus more than 1, ask us</div>
       <div className="sidebar-about"><br/><b>date:</b> february 11, 9:00pm<br/><b>location:</b> 248 mckibbin st.</div>
     </Box>
   );

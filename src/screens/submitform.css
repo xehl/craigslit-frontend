@@ -57,7 +57,12 @@
 }
 
 #title {
-  width: 250px;
+  width: 200px;
+  margin-right: 15px;
+}
+
+#author {
+  width: 150px;
   margin-right: 15px;
 }
 
