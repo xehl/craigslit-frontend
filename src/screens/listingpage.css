@@ -28,8 +28,9 @@
 .listing-image {
   width: 90%;
   max-width: 650px;
+  max-height: 400px;
   object-fit: contain;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   background-color: #ebebeb;
 }
 

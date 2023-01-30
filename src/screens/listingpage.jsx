@@ -100,7 +100,15 @@ export default function ListingPage(props) {
           flexDirection: { xs: "column", md: "row" },
         }}>
           <Box sx={{
-            mr: {xs: 0, sm: "20px"},
+            mr: { xs: 0, sm: "20px" },
+            mb: { xs: "20px", sm: 2 },
+            mt: { xs: "20px", sm: 2 },
+            width: { xs: "90vw", md: "650px" },
+            maxHeight: { xs: "400px", md: "500px" },
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#ebebeb",
           }}>
             {/* <img src={require("../media/backpack.jpeg")} alt="backpack" /> */}
             <AdvancedImage cldImg={myImage} className="listing-image"/>
