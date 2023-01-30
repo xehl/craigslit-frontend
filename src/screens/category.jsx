@@ -19,7 +19,8 @@ export default function Category() {
     console.log("useEffect")
     axios.get(`${process.env.REACT_APP_API_URL}/category/${params.category}`)
       .then((res) => {
-        console.log(res.data.listings)
+        let listings = res.data.listings
+        listings.reverse()
         setListingData(res.data.listings)
       })
   }, [params.category])
@@ -44,10 +45,23 @@ export default function Category() {
 
   return (
     <div className="category-container">
-      <div className="category-header">
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          height: "40px",
+          borderBottom: "1px solid #ababab",
+          backgroundColor: "#ebebeb",
+          color: "#5c5c5c",
+          fontSize: {xs: "14px", sm: "22px"},
+          fontWeight: "bold",
+          lineHeight: "40px",
+        }}
+        className="category-header"
+      >
         <button className="home-button" onClick={handleHome}>CL</button>
         <div>craigslit &gt; category &gt; {category}</div>
-      </div>
+      </Box>
       <Box sx={{
         width: "100vw",
         // backgroundColor: "red",
@@ -73,7 +87,10 @@ export default function Category() {
             {
               listingData.map((item) => {
                 return (
-                  <Grid item xs={4}>  
+                  <Grid item xs={12} sm={6} md={4} sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}>  
                     <ListingCard key={item._id} data={item} />
                   </Grid>
                 )
