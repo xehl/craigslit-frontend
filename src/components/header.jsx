@@ -8,7 +8,7 @@ export default function Header(props) {
         borderTop: "1px solid #ababab",
         borderBottom: "1px solid #ababab",
         height: "40px",
-        width: "665px",
+        // width: "665px",
         backgroundColor: "#ebebeb",
         fontFamily: "Times New Roman",
         color: "#5c5c5c",

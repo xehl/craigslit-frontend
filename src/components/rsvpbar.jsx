@@ -1,21 +1,7 @@
 import { Box } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import GuestLink from "./guestlink";
 
-export default function RsvpBar() {
-
-  const [guests, setGuests] = useState([])
-
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/guests/`)
-      .then((res) => {
-        console.log(res.data)
-        setGuests(res.data.guests)
-      }
-    )
-  }, [])
-
+export default function RsvpBar(props) {
   return (
     <Box sx={{
       width: 210,
@@ -41,18 +27,8 @@ export default function RsvpBar() {
       </Box>
       <Box>
         {
-          guests.map((item) => {
+          props.guests.map((item) => {
             return <GuestLink key={item.id} guest={item} />
-            // <Box key={item._id}
-            //   sx={{
-            //   fontFamily: "Times New Roman",
-            //   fontSize: 18,
-            //   marginTop: "7px",
-            //   ml: 0.7,
-            //   mr: 0.7,
-            // }}>
-            //   {item.name}
-            // </Box>
           })
         }
       </Box>

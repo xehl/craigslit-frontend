@@ -21,6 +21,8 @@ export default function CategoryHeader(props) {
       borderTop: "1px solid #ababab",
       borderBottom: "1px solid #ababab",
       height: "25px",
+      textAlign: "center",
+      width: { md: "225px", lg: "322.5px" },
       lineHeight: "25px",
       fontWeight: "bold",
       backgroundColor: "#ebebeb",

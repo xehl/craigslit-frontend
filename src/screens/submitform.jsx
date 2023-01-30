@@ -1,5 +1,6 @@
 // form for submitting a post
 import { React, useRef, useState } from "react"
+import { Box } from "@mui/material"
 import ReactTooltip from "react-tooltip";
 import "./submitform.css"
 import { useNavigate, useLocation } from "react-router-dom"
@@ -153,53 +154,95 @@ export default function SubmitForm(props) {
           }
         )
           .catch(
-          (err) => console.log(err)
-        )
+            (err) => console.log(err)
+          )
       })
   }
 
   // home button sends user back to homepage
   let handleHome = (e) => {
     e.preventDefault()
-    setTimeout(() => { 
+    setTimeout(() => {
       navigate("/");
-    }, 200);  }
+    }, 200);
+  }
 
   console.log(location.state)
 
   return (
-    <div className="submit-container">
+    <Box
+      sx={{
+        width: "100vw",
+      }}
+    >
       <div className="submit-header">
         <button className="home-button" onClick={handleHome}>CL</button>
         <div>craigslit &gt; post &gt; { location.state.listingtype }</div>
       </div>
-      <form className="form-container">
-        <div className="top-row">
-          <div>
-            <input type="text" placeholder="title" ref={title} className={titleMissing ? "incomplete" : "input"} id="title" autoComplete="off" required/>
-            <input type="text" placeholder="author" ref={author} className={authorMissing ? "incomplete" : "input"} id="author" autoComplete="off"/>
-            <input type="text" placeholder="phone" ref={phone} className={phoneMissing ? "incomplete" : "input"} autoComplete="off"/>
+      <Box sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', sm: 'row' },
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <form className="form-container">
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: {xs: 'column', sm: 'row'},
+              justifyContent: 'space-between',
+              mt: {xs: "20px", sm: "80px"},
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: {xs: 'column', sm: 'row'},
+                justifyContent: 'space-between',
+                pl: {xs: '20px', sm: '0px'},
+              }}
+            >
+              <input type="text" placeholder="title" ref={title} className={titleMissing ? "incomplete" : "input"} id="title" autoComplete="off" required/>
+              <input type="text" placeholder="author" ref={author} className={authorMissing ? "incomplete" : "input"} id="author" autoComplete="off"/>
+              <input type="text" placeholder="phone" ref={phone} className={phoneMissing ? "incomplete" : "input"} id="phone" autoComplete="off"/>
+            </Box>
+            <Box sx={{
+              pl: { xs: '20px', sm: '0px' },
+              display: 'flex',
+              flexDirection: {xs: 'column-reverse', sm: 'row'},
+            }}>
+              <span data-tip='price must be a number' data-event='click focus'>
+                $ <input type="text" placeholder="price" ref={price} className="input" id="price" autoComplete="off" />
+                <ReactTooltip globalEventOff='click'/>
+              </span>
+              <input type="text" placeholder="location" ref={itemlocation} className="input" autoComplete="off"/>
+            </Box>
+          </Box>
+          <Box sx={{
+            width: "80vw",
+            p: { xs: 3, sm: 0 },
+          }}>
+            <textarea ref={description} className={descriptionMissing ? "description-incomplete" : "description"} placeholder="description"/>
+          </Box>
+          <div className="detail-container">
+            <Box
+              sx={{
+                display: 'flex',
+                m: "15px",
+                flexDirection: {xs: 'column', sm: 'row'},
+              }}
+              className="bottom-row"
+            >
+              <div>
+                <span className="image-text">image: </span><input type="file" className={imageMissing ? "image-incomplete" : ""} onChange={(e) => setImage(e.target.files[0])} />
+                <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autoComplete="off"/>
+                <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autoComplete="off"/>
+              </div>
+              <button className="submit-button" onClick={handleSubmit}>submit listing</button>
+            </Box>
           </div>
-          <div>
-            <span data-tip='price must be a number' data-event='click focus'>
-              $ <input type="text" placeholder="price" ref={price} className="input" id="price" autoComplete="off" />
-              <ReactTooltip globalEventOff='click'/>
-            </span>
-            <input type="text" placeholder="location" ref={itemlocation} className="input" autoComplete="off"/>
-          </div>
-        </div>
-        <textarea ref={description} className={descriptionMissing ? "description-incomplete" : "description"} placeholder="description"/>
-        <div className="detail-container">
-          <div className="bottom-row">
-            <div>
-              <input type="text" placeholder="condition" ref={condition} className="input" id="condition" autoComplete="off"/>
-              <input type="text" placeholder="size/dimensions" ref={size} className="input" id="size" autoComplete="off"/>
-              <span className="image-text">image: </span><input type="file" className={imageMissing ? "image-incomplete" : ""} onChange={(e) => setImage(e.target.files[0])} />
-            </div>
-            <button className="submit-button" onClick={handleSubmit}>submit listing</button>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </Box>
+    </Box>
   );
 }

@@ -23,9 +23,10 @@ export default function ListingLink(props) {
         borderBottom: "1px solid #cbcbcb",
         // hide overflow text
         textOverflow: "clip",
+        textAlign: "center",
         overflow: "hidden",
         wrap: "nowrap",
-        width: "322.5px",
+        width: {md: "225px", lg: "322.5px"},
         paddingBottom: "2px",
         color: "blue",
         ":hover": {
