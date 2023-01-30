@@ -3,13 +3,18 @@ import { useNavigate } from "react-router-dom";
 
 export default function CategoryHeader(props) {
 
+  let categoryName = props.title.split(" ")[0];
+  if (categoryName === "missed") {
+    categoryName = "personals";
+  }
+
   let navigate = useNavigate();
 
   function handleClick(e) {
     e.preventDefault();
 
     setTimeout(() => { 
-      navigate(`/category/${props.title.split(" ")[0]}`);
+      navigate(`/category/${categoryName}`);
     }, 200);
   }
 
