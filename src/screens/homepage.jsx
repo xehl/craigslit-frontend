@@ -145,10 +145,10 @@ export default function Homepage(props) {
           ml: 1
         }}>
           <CategoryHeader title="gigs" />
-          <ListingLink title="DJ Wanchoo @ Craigslit" type="gigs" listingid="63d7f5d437bf0a84c5301081" />
+          <ListingLink title="DJ Wanchoo @ Craigslit" type="gigs" listingid="63d83119c566d67c7f6aa7c5" />
             <div>
               {listings.map((item) => {
-                if (item.listingtype === "gigs" && item._id !== "63d7f5d437bf0a84c5301081") {
+                if (item.listingtype === "gigs" && item._id !== "63d83119c566d67c7f6aa7c5") {
                   return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                 }
               return null
