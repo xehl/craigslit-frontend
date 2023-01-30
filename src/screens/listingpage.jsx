@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Box } from "@mui/material";
 import "./listingpage.css"
 import axios from "axios";
 import { AdvancedImage } from "@cloudinary/react"
@@ -61,32 +62,63 @@ export default function ListingPage(props) {
   
   return (
     <div className="listing-page-container">
-      <div className="listing-header">
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          height: "40px",
+          borderBottom: "1px solid #ababab",
+          backgroundColor: "#ebebeb",
+          color: "#5c5c5c",
+          fontSize: {xs: "14px", sm: "22px"},
+          fontWeight: "bold",
+          lineHeight: "40px",
+        }}
+        className="category-header"
+      >
         <button className="home-button" onClick={handleHome}>CL</button>
         <div>craigslit &gt; listing &gt; {type} &gt; {title}</div> 
-      </div>
-      <div className="listing-container">
-        <div className="listing-title">
+      </Box>
+      <Box sx={{
+        p: 2
+      }}>
+      <Box sx={{
+        width: { xs: "90vw", md: "900px" },
+        margin: "0 auto",
+      }}>
+        <Box sx={{
+          mt: {xs: "20px", sm: "50px"},
+          fontFamily: "Times New Roman",
+          fontSize: "30px",
+          fontWeight: "bold",
+        }}
+        >
           {title} <span className="listing-price">$ {price}</span>
-        </div>
-        <div className="listing-details">
-          <div>
+        </Box>
+        <Box sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+        }}>
+          <Box sx={{
+            mr: {xs: 0, sm: "20px"},
+          }}>
             {/* <img src={require("../media/backpack.jpeg")} alt="backpack" /> */}
             <AdvancedImage cldImg={myImage} className="listing-image"/>
-          </div>
+          </Box>
           <div>
             <div className="detail">location: {itemlocation}</div><br/>
             <div className="detail">size: {size}</div><br/>
             <div className="detail">condition: {condition}</div>
           </div>
-        </div>
+        </Box>
         <div className="listing-description">
           {description}
         </div>
         <div>
           Posted by: {author} on {created}
         </div>
-      </div>
+        </Box>
+      </Box>
     </div>
   );
 }

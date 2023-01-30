@@ -15,18 +15,6 @@
   line-height: 40px;
 }
 
-.listing-container {
-  width: 900px;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-
-.listing-title {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 30px;
-  font-weight: bold;
-}
-
 .listing-price {
   font-size: 24px;
   color: #5c5c5c;
@@ -38,11 +26,10 @@
 }
 
 .listing-image {
-  width: 650px;
-  height: 420px;
+  width: 90%;
+  max-width: 650px;
   object-fit: contain;
   margin-top: 15px;
-  margin-right: 25px;
   background-color: #ebebeb;
 }
 
