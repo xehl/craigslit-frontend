@@ -175,10 +175,23 @@ export default function SubmitForm(props) {
         width: "100vw",
       }}
     >
-      <div className="submit-header">
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          height: "40px",
+          borderBottom: "1px solid #ababab",
+          backgroundColor: "#ebebeb",
+          color: "#5c5c5c",
+          fontSize: {xs: "14px", sm: "22px"},
+          fontWeight: "bold",
+          lineHeight: "40px",
+        }}
+        className="category-header"
+      >
         <button className="home-button" onClick={handleHome}>CL</button>
         <div>craigslit &gt; post &gt; { location.state.listingtype }</div>
-      </div>
+      </Box>
       <Box sx={{
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row' },
