@@ -29,12 +29,12 @@ export default function ListingPage(props) {
   let navigate = useNavigate()
 
   useEffect(() => {
-    console.log(`${process.env.REACT_APP_API_URL}/posts/` + params.listingid + "/")
+    // console.log(`${process.env.REACT_APP_API_URL}/posts/` + params.listingid + "/")
     // get text fields from django api
     axios.get(`${process.env.REACT_APP_API_URL}/posts/` + params.listingid + "/")
       .then((res) => {
         let listing = res.data.listing
-        console.log(res)
+        // console.log(res)
         setTitle(listing.title)
         setPrice(listing.price)
         setLocation(listing.location)

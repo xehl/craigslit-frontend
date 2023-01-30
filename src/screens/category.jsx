@@ -13,10 +13,9 @@ export default function Category() {
   const [category, setCategory] = useState(params.category)
   const [listingData, setListingData] = useState([])
   
-  console.log(`${process.env.REACT_APP_API_URL}/category/${params.category}`)
+  // console.log(`${process.env.REACT_APP_API_URL}/category/${params.category}`)
 
   useEffect(() => {
-    console.log("useEffect")
     axios.get(`${process.env.REACT_APP_API_URL}/category/${params.category}`)
       .then((res) => {
         let listings = res.data.listings
@@ -25,13 +24,16 @@ export default function Category() {
       })
   }, [params.category])
 
-  console.log(listingData)
+  // console.log(listingData)
 
   if (category === "free") {
     setCategory("free and for sale")
   }
   if (category === "links") {
     setCategory("links / discussion")
+  }
+  if (category === "personals") {
+    setCategory("missed connections")
   }
 
   let navigate = useNavigate();
@@ -78,20 +80,18 @@ export default function Category() {
             justifyContent: "space-between",
           }}
         >
-          {/* <form className="search-bar">
-            <input type="text" className="category-search" />
-            <button className="search-button">search</button>
-          </form> */}
 
           <Grid container spacing={2}>
             {
               listingData.map((item) => {
                 return (
-                  <Grid item xs={12} sm={6} md={4} sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}>  
-                    <ListingCard key={item._id} data={item} />
+                  <Grid item xs={12} sm={6} md={4}
+                    key={item._id}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}>  
+                    <ListingCard data={item} />
                   </Grid>
                 )
               })

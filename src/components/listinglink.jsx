@@ -10,7 +10,7 @@ export default function ListingLink(props) {
 
   let handleClick = (e) => {
     e.preventDefault();
-    console.log("item number: " + props.listingid)
+    // console.log("item number: " + props.listingid)
     setTimeout(() => { 
       navigate("/listing/" + props.listingid, { state: { listingnum: props.listingid } });
     }, 200);

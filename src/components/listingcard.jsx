@@ -19,7 +19,7 @@ export default function ListingCard(props) {
   let navigate = useNavigate()
 
   let listing = props.data
-  console.log(listing)
+  // console.log(listing)
 
   let handleClick = (e) => {
     e.preventDefault();

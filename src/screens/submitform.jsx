@@ -134,7 +134,7 @@ export default function SubmitForm(props) {
     // post request to send image to cloudinary, then post request to send text
     axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
       .then((res) => {
-        console.log("image id: " + res.data.public_id)
+        // console.log("image id: " + res.data.public_id)
         axios.post(`${process.env.REACT_APP_API_URL}/posts/`, {
           "title": title.current.value,
           "author": author.current.value,
@@ -148,7 +148,7 @@ export default function SubmitForm(props) {
           "listingtype": location.state.listingtype
         }).then(
           (res) => {
-            console.log(res.data.listing)
+            // console.log(res.data.listing)
             let listing = res.data.listing
             navigate("/listing/" + listing._id)
           }
@@ -167,7 +167,7 @@ export default function SubmitForm(props) {
     }, 200);
   }
 
-  console.log(location.state)
+  // console.log(location.state)
 
   return (
     <Box
