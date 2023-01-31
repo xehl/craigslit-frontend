@@ -99,7 +99,7 @@ export default function Sidebar(props) {
         </Box>
       </Box>
       <Calendar />
-      <div className="sidebar-party-info"><br/><i>you're invited to craigslit! barter market, gift exchange, dance party, and more</i><br/><br/>+1s welcome<br/><br/> if bringing more than +1, please ask</div>
+      <div className="sidebar-party-info"><br/><i>you're invited to craigslit! gift exchange, barter market, dance party, and more?</i><br/><br/>+1s welcome<br/><br/> if bringing more than +1, please ask</div>
       <div className="sidebar-about"><br/><b>date:</b> february 11, 9:00pm<br/><b>location:</b> 248 mckibbin st.</div>
     </Box>
   );

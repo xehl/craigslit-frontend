@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/sidebar";
 import MobileGuestLink from "../components/mobileguestlink";
 import Header from "../components/header";
+import SeeMore from "../components/seemore";
 import ListingLink from "../components/listinglink";
 import axios from "axios";
 import CategoryHeader from "../components/categoryHeader";
@@ -165,15 +166,16 @@ export default function Homepage(props) {
           ml: 1
         }}>
           <CategoryHeader title="gigs" />
-          <ListingLink title="DJ Wanchoo @ Craigslit" type="gigs" listingid="63d83119c566d67c7f6aa7c5" />
-            <div>
-              {listings.map((item) => {
-                if (item.listingtype === "gigs" && item._id !== "63d83119c566d67c7f6aa7c5") {
-                  return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
-                }
-              return null
-              })}
-            </div>
+          <div>
+            <ListingLink title="DJ Wanchoo @ Craigslit" type="gigs" listingid="63d83119c566d67c7f6aa7c5" />
+            {listings.map((item) => {
+              if (item.listingtype === "gigs" && item._id !== "63d83119c566d67c7f6aa7c5") {
+                return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
+              }
+            return null
+            })}
+          </div>
+
           <CategoryHeader title="free and for sale" />
           <div>
             {listings.map((item) => {
@@ -224,18 +226,20 @@ export default function Homepage(props) {
                   }
                 return null
                 })}
+                <SeeMore title="free"/>
               </div>
             </div>
             <div>
             <CategoryHeader title="gigs" />
-              <ListingLink title="DJ Wanchoo @ Craigslit" type="gigs" listingid="63d83119c566d67c7f6aa7c5" />
               <div>
+                <ListingLink title="DJ Wanchoo @ Craigslit" type="gigs" listingid="63d83119c566d67c7f6aa7c5" />
                 {listings.map((item) => {
                   if (item.listingtype === "gigs" && item._id !== "63d83119c566d67c7f6aa7c5") {
                     return <ListingLink key={item._id} title={item.title} type={item.listingtype} listingid={ item._id }/>
                   }
                 return null
                 })}
+                <SeeMore title="gigs"/>
               </div>
             </div>
             <div>
@@ -247,6 +251,7 @@ export default function Homepage(props) {
                   }
                 return null
                 })}
+                <SeeMore title="personals"/>
               </div>
             </div>
             <div>
@@ -258,6 +263,7 @@ export default function Homepage(props) {
                   }
                 return null
                 })}
+                <SeeMore title="links / discussion"/>
               </div>
             </div>
           </div>
