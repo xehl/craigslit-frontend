@@ -2,12 +2,19 @@ import React from "react";
 import { Box } from "@mui/material";
 import Calendar from "./calendar";
 import { useNavigate } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 export default function Sidebar(props) {
 
   let navigate = useNavigate();
   let handlePost = (e) => {
     e.preventDefault();
+
+    ReactGA.event({
+      category: "click",
+      action: "clicked create post in sidebar",
+    });
+
     // wait for 0.2 seconds before navigating to the type page
     setTimeout(() => { 
       navigate("/type");
@@ -91,11 +98,8 @@ export default function Sidebar(props) {
           create a post
         </Box>
       </Box>
-      {/* <div className="sidebar-search">
-        <input type="text" name="search" placeholder="Search Craigslit"/>
-      </div> */}
       <Calendar />
-      <div className="sidebar-party-info"><br/><i>you're invited to craigslit! barter market, gift exchange, dance party, and more</i><br/><br/>+1s welcome<br/><br/> plus more than 1, ask us</div>
+      <div className="sidebar-party-info"><br/><i>you're invited to craigslit! barter market, gift exchange, dance party, and more</i><br/><br/>+1s welcome<br/><br/> if bringing more than +1, please ask</div>
       <div className="sidebar-about"><br/><b>date:</b> february 11, 9:00pm<br/><b>location:</b> 248 mckibbin st.</div>
     </Box>
   );

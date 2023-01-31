@@ -17,12 +17,23 @@ export default function Homepage(props) {
   let navigate = useNavigate();
 
   const [listings, setListings] = useState([])
-  const [guests, setGuests] = useState([])
+  const [guests, setGuests] = useState([])  
 
   useEffect(() => {
+
+    let cachedListings = localStorage.getItem("listings")
+    let cachedGuests = localStorage.getItem("guests")
+    if (cachedListings) {
+      setListings(JSON.parse(cachedListings))
+    }
+    if (cachedGuests) {
+      setGuests(JSON.parse(cachedGuests))
+    }
+
     // get most recent listings for each category (set to 10 for now)
     axios.get(`${process.env.REACT_APP_API_URL}/recent/`)
     .then((res) => {
+      localStorage.setItem("listings", JSON.stringify(res.data.listings))
       setListings(res.data.listings)
     })
     .catch((err) => {
@@ -41,6 +52,7 @@ export default function Homepage(props) {
             guestNames.push(guest.name)
           }
         })
+        localStorage.setItem("guests", JSON.stringify(uniqueGuests))
         setGuests(uniqueGuests)
       }
     ).catch((err) => {

@@ -12,7 +12,7 @@
     <img src="public/craigslisticon.png" alt="Logo" width="200px">
   <p align="center">
     <br />
-        <a href="https://serene-tarsier-eb11bb.netlify.app/"><strong>Open app on Netlify</strong></a> ·
+        <a href="https://craigslit.netlify.app"><strong>Open app on Netlify</strong></a> ·
         <a href="https://github.com/xehl/craigslit-frontend"><strong>Explore the repo</strong></a>
     <br />
   </p>
