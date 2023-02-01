@@ -14,7 +14,7 @@ export default function GuestLink(props) {
       onClick={handleClick}
       sx={{
       fontFamily: "Times New Roman",
-      fontSize: 18,
+      fontSize: 15,
       marginTop: "7px",
       ml: 0.7,
         mr: 0.7,

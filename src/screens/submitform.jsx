@@ -5,6 +5,7 @@ import ReactTooltip from "react-tooltip";
 import "./submitform.css"
 import { useNavigate, useLocation } from "react-router-dom"
 import axios from "axios"
+import ReactGA from "react-ga4";
 
 export default function SubmitForm(props) {
 
@@ -126,6 +127,12 @@ export default function SubmitForm(props) {
       return
     }
 
+    // log event in GA
+    ReactGA.event({
+      category: "submit",
+      action: "user attempted to submit a listing",
+    });
+
     // makes an empty object called formdata, appends image and the correct cloudinary preset
     const formData = new FormData()
     formData.append("file", image)
@@ -134,6 +141,7 @@ export default function SubmitForm(props) {
     // post request to send image to cloudinary, then post request to send text
     axios.post("https://api.cloudinary.com/v1_1/dnzwb1afa/image/upload", formData)
       .then((res) => {
+
         // console.log("image id: " + res.data.public_id)
         axios.post(`${process.env.REACT_APP_API_URL}/posts/`, {
           "title": title.current.value,

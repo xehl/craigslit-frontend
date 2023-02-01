@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 export default function CategoryHeader(props) {
 
@@ -12,6 +13,12 @@ export default function CategoryHeader(props) {
 
   function handleClick(e) {
     e.preventDefault();
+
+    // log event in GA
+    ReactGA.event({
+      category: "click",
+      action: `user clicked on ${categoryName} category header`, 
+    });
 
     setTimeout(() => { 
       navigate(`/category/${categoryName}`);

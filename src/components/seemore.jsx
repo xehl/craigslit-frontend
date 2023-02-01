@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 export default function SeeMore(props) {
 
@@ -12,6 +13,12 @@ export default function SeeMore(props) {
 
   function handleClick(e) {
     e.preventDefault();
+
+    // log event in GA
+    ReactGA.event({
+      category: "click",
+      action: `user clicked on see more ${categoryName}`, 
+    });
 
     setTimeout(() => { 
       navigate(`/category/${categoryName}`);
