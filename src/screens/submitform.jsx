@@ -130,7 +130,7 @@ export default function SubmitForm(props) {
     // log event in GA
     ReactGA.event({
       category: "submit",
-      action: "user attempted to submit a listing",
+      action: "user attempted to submit a listing", 
     });
 
     // makes an empty object called formdata, appends image and the correct cloudinary preset

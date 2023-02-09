@@ -25,6 +25,7 @@ export default function ListingPage(props) {
   const [created, setCreated] = useState(null)
   const [imageID, setImageID] = useState(null)
   const [type, setType] = useState(null)
+  const [phone, setPhone] = useState(null)
 
   let navigate = useNavigate()
 
@@ -45,6 +46,7 @@ export default function ListingPage(props) {
         setCreated(listing.created)
         setImageID(listing.imageid)
         setType(listing.listingtype)
+        setPhone(listing.phone)
     })
     .catch((err) => {
       console.log(err);
@@ -124,6 +126,9 @@ export default function ListingPage(props) {
         </div>
         <div>
           Posted by: {author} on {created}
+        </div>
+        <div>
+          Contact the author: {phone}
         </div>
         </Box>
       </Box>
