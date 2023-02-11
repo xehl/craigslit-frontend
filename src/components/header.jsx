@@ -18,7 +18,7 @@ export default function Header(props) {
         marginLeft: "15px",
         marginTop: "15px",
       }}>
-      You're Invited! Feb 11, 2023
+      You're Invited! Feb 25, 2023
     </Box>
   );
 }

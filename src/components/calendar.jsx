@@ -39,7 +39,7 @@ export default function Calendar() {
           <CalBox>8</CalBox>
           <CalBox>9</CalBox>
           <CalBox>10</CalBox>
-          <CalBox style={{background: 'yellow'}}>11</CalBox>
+          <CalBox>11</CalBox>
           <CalBox>12</CalBox>
           <CalBox>13</CalBox>
           <CalBox>14</CalBox>
@@ -53,7 +53,7 @@ export default function Calendar() {
           <CalBox>22</CalBox>
           <CalBox>23</CalBox>
           <CalBox>24</CalBox>
-          <CalBox>25</CalBox>
+          <CalBox style={{background: 'yellow'}}>25</CalBox>
           <CalBox>26</CalBox>
           <CalBox>27</CalBox>
           <CalBox>28</CalBox>
