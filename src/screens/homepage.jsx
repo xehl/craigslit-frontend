@@ -111,7 +111,7 @@ export default function Homepage(props) {
           <Box sx={{
             mb: .7,
           }}>
-            <b>details: </b>feb 11, 2023 - 9:00pm - 248 mckibbin st.
+            <b>details: </b>feb 25, 2023 - 9:00pm - 248 mckibbin st.
           </Box>
           <b>make a post to RSVP:</b>
           <Box
