@@ -21,11 +21,14 @@ export default function RsvpBar(props) {
           fontSize: 24,
           fontWeight: "bold",
           marginTop: "15px",
-          mb: "12px"
+          mb: "12px",
         }}>
         Guest List
       </Box>
-      <Box>
+      <Box sx={{
+        height: "80vh",
+        overflow: "scroll",
+      }}>
         {
           props.guests.map((item) => {
             return <GuestLink key={item.id} guest={item} />
